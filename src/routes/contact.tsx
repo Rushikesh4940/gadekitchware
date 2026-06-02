@@ -4,9 +4,9 @@ import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — GADE Kitchware" },
-      { name: "description", content: "Get in touch with GADE Kitchware for product enquiries, catalogue requests, distribution and bulk orders." },
-      { property: "og:title", content: "Contact GADE Kitchware" },
+      { title: "Contact — GADE Kitchenware" },
+      { name: "description", content: "Get in touch with GADE Kitchenware for product enquiries, catalogue requests, distribution and bulk orders." },
+      { property: "og:title", content: "Contact GADE Kitchenware" },
       { property: "og:description", content: "Reach our team for product, catalogue and distribution enquiries." },
     ],
   }),
@@ -29,14 +29,19 @@ function ContactPage() {
       </section>
 
       <section className="container-x grid gap-12 py-20 md:grid-cols-12">
-        <div className="md:col-span-5 space-y-6">
-          <ContactCard icon={Phone} label="Phone" value="+91 98 0000 0000" />
-          <ContactCard icon={MessageCircle} label="WhatsApp" value="+91 98 0000 0000" />
-          <ContactCard icon={Mail} label="Email" value="hello@gadekitchware.com" />
-          <ContactCard icon={MapPin} label="Visit" value={"Plot 14, MIDC Industrial Area\nMaharashtra, India"} />
+        <div className="md:col-span-5">
+          <div className="space-y-8 border-t border-border pt-8">
+            <ContactRow icon={Phone} label="Phone" value="+91 89765 70008" />
+            <ContactRow icon={MessageCircle} label="WhatsApp" value="+91 89765 70008" />
+            <ContactRow icon={Mail} label="Email" value="hello@gadekitchware.com" />
+            <ContactRow icon={MapPin} label="Address" value={"H.No.2/1, Gala No.9, S No. 46/C\nShivam Industries, Gauraipada Road\nAsai, Vasai East — 401208\nMaharashtra, India"} />
+          </div>
+          <div className="mt-8 rounded-lg border border-border bg-muted/40 px-4 py-3 text-xs text-muted-foreground">
+            <span className="font-medium text-foreground">GSTIN:</span> 27AZBPG5815D1ZQ
+          </div>
         </div>
 
-        <form className="md:col-span-7 rounded-2xl border border-border bg-card p-8 md:p-10">
+        <form className="md:col-span-7 rounded-xl border border-border bg-card p-8 md:p-10">
           <h2 className="font-display text-2xl">Send a message</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <Field label="Name" />
@@ -46,7 +51,7 @@ function ContactPage() {
           </div>
           <div className="mt-5">
             <label className="text-xs uppercase tracking-wider text-muted-foreground">Message</label>
-            <textarea rows={5} className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus:border-primary" />
+            <textarea rows={5} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
           </div>
           <button type="button" className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground hover:bg-primary-deep">
             Send message
@@ -57,14 +62,14 @@ function ContactPage() {
   );
 }
 
-function ContactCard({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) {
+function ContactRow({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-border bg-card p-6">
-      <div className="flex items-center gap-3">
-        <div className="grid h-10 w-10 place-items-center rounded-md bg-primary/10 text-primary"><Icon className="h-5 w-5" /></div>
-        <div className="text-xs uppercase tracking-wider text-muted-foreground">{label}</div>
+    <div className="flex gap-4">
+      <Icon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+      <div>
+        <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{label}</div>
+        <div className="mt-1 whitespace-pre-line text-sm leading-relaxed">{value}</div>
       </div>
-      <div className="mt-4 whitespace-pre-line font-display text-xl leading-tight">{value}</div>
     </div>
   );
 }
@@ -73,7 +78,7 @@ function Field({ label, type = "text" }: { label: string; type?: string }) {
   return (
     <div>
       <label className="text-xs uppercase tracking-wider text-muted-foreground">{label}</label>
-      <input type={type} className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus:border-primary" />
+      <input type={type} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
     </div>
   );
 }

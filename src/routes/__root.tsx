@@ -41,10 +41,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "GADE Kitchware — Modern Kitchen & Home Essentials" },
+      { title: "GADE Kitchenware — Modern Kitchen & Home Essentials" },
       { name: "description", content: "Premium kitchen storage, organizers, racks, measuring tools and household utility products. Made in India by GADE." },
-      { name: "author", content: "GADE Kitchware" },
-      { property: "og:title", content: "GADE Kitchware — Modern Kitchen & Home Essentials" },
+      { name: "author", content: "GADE Kitchenware" },
+      { property: "og:title", content: "GADE Kitchenware — Modern Kitchen & Home Essentials" },
       { property: "og:description", content: "Premium kitchen storage, organizers, racks, measuring tools and household utility products." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

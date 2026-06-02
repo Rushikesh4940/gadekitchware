@@ -4,9 +4,9 @@ import { Check, Download, Truck } from "lucide-react";
 export const Route = createFileRoute("/distributors")({
   head: () => ({
     meta: [
-      { title: "Distributors & Wholesalers — GADE Kitchware" },
+      { title: "Distributors & Wholesalers — GADE Kitchenware" },
       { name: "description", content: "Partner with GADE for wholesale and distribution of premium household and kitchen utility products across India." },
-      { property: "og:title", content: "Distributors & Wholesalers — GADE Kitchware" },
+      { property: "og:title", content: "Distributors & Wholesalers — GADE Kitchenware" },
       { property: "og:description", content: "Margin-friendly pricing, bulk orders, and product designed for genuine sell-through." },
     ],
   }),
@@ -29,21 +29,24 @@ function DistributorsPage() {
       </section>
 
       <section className="container-x grid gap-12 py-20 md:grid-cols-12">
-        <div className="md:col-span-7 space-y-4">
-          {[
-            "Wholesale pricing tiered to volume",
-            "Dedicated distributor support manager",
-            "Bulk order turnaround under 14 days",
-            "Co-branded marketing collateral on request",
-            "MOQ from 50 units per SKU",
-          ].map((t) => (
-            <div key={t} className="flex items-center gap-3 rounded-xl border border-border bg-card p-5">
-              <Check className="h-5 w-5 text-primary" /> <span className="text-sm">{t}</span>
-            </div>
-          ))}
+        <div className="md:col-span-7">
+          <ul className="space-y-5 border-t border-border pt-8">
+            {[
+              "Wholesale pricing tiered to volume",
+              "Dedicated distributor support manager",
+              "Bulk order turnaround under 14 days",
+              "Co-branded marketing collateral on request",
+              "MOQ from 50 units per SKU",
+            ].map((t) => (
+              <li key={t} className="flex items-start gap-3">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span className="text-sm leading-relaxed">{t}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <form className="md:col-span-5 space-y-4 rounded-2xl border border-border bg-card p-8">
+        <form className="md:col-span-5 space-y-4 rounded-xl border border-border bg-card p-8">
           <h2 className="font-display text-2xl">Distributor enquiry</h2>
           <Field label="Business name" />
           <Field label="Contact person" />
@@ -52,7 +55,7 @@ function DistributorsPage() {
           <Field label="Email" type="email" />
           <div>
             <label className="text-xs uppercase tracking-wider text-muted-foreground">Tell us about your business</label>
-            <textarea rows={3} className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus:border-primary" />
+            <textarea rows={3} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
           </div>
           <button type="button" className="w-full rounded-full bg-primary py-3 text-sm font-medium text-primary-foreground hover:bg-primary-deep">
             Send enquiry
@@ -73,7 +76,7 @@ function Field({ label, type = "text" }: { label: string; type?: string }) {
   return (
     <div>
       <label className="text-xs uppercase tracking-wider text-muted-foreground">{label}</label>
-      <input type={type} className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus:border-primary" />
+      <input type={type} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
     </div>
   );
 }

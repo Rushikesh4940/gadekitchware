@@ -1,7 +1,21 @@
-import storage from "@/assets/cat-storage.jpg";
-import racks from "@/assets/cat-racks.jpg";
-import measuring from "@/assets/cat-measuring.jpg";
-import baskets from "@/assets/cat-baskets.jpg";
+// Product images
+import p2tierRack from "@/assets/products/2tier-kitchen-rack.png";
+import p3in1Organizer from "@/assets/products/3in1-kitchen-organizer.png";
+import p15GridBox from "@/assets/products/15-grid-storage-box.png";
+import p24GridBox from "@/assets/products/24-grid-storage-box.png";
+import p36GridBox from "@/assets/products/36-grid-storage-box.png";
+import pCakescraper3 from "@/assets/products/cakescraper-3pc.png";
+import pCakescraper4 from "@/assets/products/cakescraper-4pc.png";
+import pTallScraper from "@/assets/products/tall-scraper-4pc.png";
+import pDrawerOrg from "@/assets/products/drawer-organizer-8pc.png";
+import pToolBox from "@/assets/products/multipurpose-tool-box.png";
+import pSocksOrg from "@/assets/products/socks-organizer-4pc.png";
+import pFlowerPot5 from "@/assets/products/flower-pot-5inch.png";
+import pFlowerPot7d1 from "@/assets/products/flower-pot-7inch-d1.png";
+import pFlowerPot7d2 from "@/assets/products/flower-pot-7inch-d2.png";
+import pFlowerPot8Diamond from "@/assets/products/flower-pot-8inch-diamond.png";
+import pFlowerPot8m3 from "@/assets/products/flower-pot-8inch-m3.png";
+import pFlowerPot8m4 from "@/assets/products/flower-pot-8inch-m4.png";
 
 export type Category = {
   slug: string;
@@ -12,19 +26,41 @@ export type Category = {
 };
 
 export const categories: Category[] = [
-  { slug: "storage", name: "Kitchen Storage", count: 48, image: storage, blurb: "Airtight containers and modular jars for an orderly pantry." },
-  { slug: "racks", name: "Utility Racks", count: 22, image: racks, blurb: "Free-standing and wall racks that earn their footprint." },
-  { slug: "measuring", name: "Measuring Tools", count: 18, image: measuring, blurb: "Calibrated cups, spoons and jugs you can actually read." },
-  { slug: "baskets", name: "Baskets & Trays", count: 31, image: baskets, blurb: "Lightweight, woven plastic that softens any shelf." },
-  { slug: "organizers", name: "Organizers", count: 27, image: storage, blurb: "Drawer dividers and caddies designed for daily reach." },
-  { slug: "bath", name: "Bathroom Utilities", count: 19, image: racks, blurb: "Compact storage that survives steam, soap and splashes." },
+  {
+    slug: "kitchen-racks",
+    name: "Kitchen Racks",
+    count: 2,
+    image: p2tierRack,
+    blurb: "Sturdy rolling racks and countertop organizers for a clutter-free kitchen.",
+  },
+  {
+    slug: "storage",
+    name: "Storage & Organizers",
+    count: 6,
+    image: p15GridBox,
+    blurb: "Grid boxes, drawer dividers and tool cases for every corner of your home.",
+  },
+  {
+    slug: "baking",
+    name: "Baking Tools",
+    count: 3,
+    image: pCakescraper3,
+    blurb: "Scrapers and smoothers for clean, professional cake finishes.",
+  },
+  {
+    slug: "planters",
+    name: "Planters",
+    count: 6,
+    image: pFlowerPot7d1,
+    blurb: "Colourful pots in every size — from windowsill herbs to statement plants.",
+  },
 ];
 
 export type Product = {
   id: string;
   name: string;
   category: string;
-  price: string;
+  moq: string;
   badge?: string;
   image: string;
   dims: string;
@@ -32,13 +68,197 @@ export type Product = {
   desc: string;
 };
 
+export const WHATSAPP_NUMBER = "918976570008";
+
+export function waLink(productName: string) {
+  const msg = encodeURIComponent(
+    `Hi, I'm interested in the ${productName}. Please share pricing and availability.`
+  );
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+}
+
 export const products: Product[] = [
-  { id: "stack-pro-2l", name: "StackPro 2L Container", category: "Kitchen Storage", price: "₹ 249", badge: "New", image: storage, dims: "190 × 140 × 95 mm", pack: "Set of 3", desc: "Airtight four-clip lid, freezer-safe body, stacks flush without rocking." },
-  { id: "trolley-tri", name: "Tri-Tier Utility Trolley", category: "Utility Racks", price: "₹ 1,290", badge: "Bestseller", image: racks, dims: "420 × 280 × 760 mm", pack: "Single", desc: "Steel-reinforced frame, locking castors, slot perforations for runoff." },
-  { id: "measure-7", name: "Measure Set of 7", category: "Measuring Tools", price: "₹ 199", image: measuring, dims: "Nests to 90 mm", pack: "7 pcs", desc: "Embossed metric + imperial markings that won't wear off in the dishwasher." },
-  { id: "weave-basket", name: "Weave Basket — Round", category: "Baskets & Trays", price: "₹ 349", image: baskets, dims: "Ø 240 × 200 mm", pack: "Single", desc: "Hand-finished latticework on injection-moulded frame. Ten colourways." },
-  { id: "pantry-9", name: "Pantry Modular Jar Set", category: "Kitchen Storage", price: "₹ 899", badge: "Editor's pick", image: storage, dims: "Various", pack: "Set of 9", desc: "Nine common volumes calibrated for Indian kitchens, square footprint." },
-  { id: "drawer-grid", name: "Drawer Grid Divider", category: "Organizers", price: "₹ 449", image: racks, dims: "Adjustable 320–520 mm", pack: "Set of 4", desc: "Push-fit dividers, no tools, hold their position through hundreds of cycles." },
-  { id: "tray-oval", name: "Service Tray — Oval", category: "Baskets & Trays", price: "₹ 299", image: baskets, dims: "380 × 260 mm", pack: "Single", desc: "Generous handles, anti-slip ribs underneath, light enough for one hand." },
-  { id: "jug-1l", name: "Calibrated Jug 1L", category: "Measuring Tools", price: "₹ 179", image: measuring, dims: "Ø 110 × 165 mm", pack: "Single", desc: "Drip-free pour spout, comfortable grip, dual-side measurement window." },
+  // ── Kitchen Racks ─────────────────────────────────────────────────────────
+  {
+    id: "2-tier-kitchen-rack",
+    name: "2 Tier Kitchen Rack",
+    category: "Kitchen Racks",
+    moq: "MOQ 10 pcs",
+    badge: "New",
+    image: p2tierRack,
+    dims: "600 × 200 × 380 mm",
+    pack: "Single",
+    desc: "Bamboo-and-steel rolling rack with locking castors. Two deep shelves hold jars, bottles and condiments with room to spare.",
+  },
+  {
+    id: "3-in-1-kitchen-organizer",
+    name: "3 in 1 Kitchen Organizer",
+    category: "Kitchen Racks",
+    moq: "MOQ 12 pcs",
+    badge: "Bestseller",
+    image: p3in1Organizer,
+    dims: "210 × 110 × 185 mm",
+    pack: "Single",
+    desc: "Countertop caddy with sponge tray, towel bar and utensil holder. Available in Green, Charcoal, Yellow and Light Blue.",
+  },
+
+  // ── Storage & Organizers ──────────────────────────────────────────────────
+  {
+    id: "15-grid-storage-box",
+    name: "15 Grid Small Storage Box",
+    category: "Storage & Organizers",
+    moq: "MOQ 50 pcs",
+    image: p15GridBox,
+    dims: "240 × 160 × 30 mm",
+    pack: "Single",
+    desc: "Clear polypropylene case with 15 compartments and a snap-shut latch. Perfect for small parts, craft supplies and accessories.",
+  },
+  {
+    id: "24-grid-storage-box",
+    name: "24 Grid Storage Box",
+    category: "Storage & Organizers",
+    moq: "MOQ 50 pcs",
+    image: p24GridBox,
+    dims: "290 × 190 × 40 mm",
+    pack: "Single",
+    desc: "24-cell transparent box with a secure clip closure. Stackable design keeps collections sorted and dust-free.",
+  },
+  {
+    id: "36-grid-storage-box",
+    name: "36 Grid Organizer Storage Box",
+    category: "Storage & Organizers",
+    moq: "MOQ 25 pcs",
+    badge: "Popular",
+    image: p36GridBox,
+    dims: "390 × 270 × 40 mm",
+    pack: "Single",
+    desc: "Extra-large 36-cell organizer for beads, pills, hardware or stationery. Removable dividers, hinged lid.",
+  },
+  {
+    id: "drawer-organizer-8pc",
+    name: "Drawer Organizer Pack of 8",
+    category: "Storage & Organizers",
+    moq: "MOQ 50 sets",
+    image: pDrawerOrg,
+    dims: "Adjustable 150–520 mm",
+    pack: "Pack of 8",
+    desc: "Interlocking plastic dividers that snap together without tools. Expands to fit drawers up to 520 mm wide.",
+  },
+  {
+    id: "multipurpose-tool-box",
+    name: "Multipurpose Tool Box",
+    category: "Storage & Organizers",
+    moq: "MOQ 20 pcs",
+    image: pToolBox,
+    dims: "330 × 210 × 80 mm",
+    pack: "Single",
+    desc: "Three-tier carry case with a secure double-latch lid. Customisable compartments for tools, craft supplies or first aid.",
+  },
+  {
+    id: "socks-organizer-4pc",
+    name: "New Socks Organizer Pack of 4",
+    category: "Storage & Organizers",
+    moq: "MOQ 50 sets",
+    image: pSocksOrg,
+    dims: "300 × 120 × 90 mm each",
+    pack: "Pack of 4",
+    desc: "Stackable drawer bins designed for socks, underwear and small folds. Breathable grid walls keep contents visible.",
+  },
+
+  // ── Baking Tools ──────────────────────────────────────────────────────────
+  {
+    id: "cakescraper-3pc",
+    name: "Cakescraper 3 Pcs Set",
+    category: "Baking Tools",
+    moq: "MOQ 100 sets",
+    image: pCakescraper3,
+    dims: "150 × 120 mm each",
+    pack: "Set of 3",
+    desc: "Three serrated scrapers in different edge profiles for smooth, raked and wave finishes. Food-grade PP, dishwasher safe.",
+  },
+  {
+    id: "cakescraper-4pc",
+    name: "Cakescraper 4 Pcs Set",
+    category: "Baking Tools",
+    moq: "MOQ 100 sets",
+    badge: "Popular",
+    image: pCakescraper4,
+    dims: "200 × 150 mm each",
+    pack: "Set of 4",
+    desc: "Four large flat scrapers for icing, fondant and ganache work. Smooth straight edges for a clean, sharp finish.",
+  },
+  {
+    id: "tall-scraper-4pc",
+    name: "Tall Scraper Set of 4 Pcs",
+    category: "Baking Tools",
+    moq: "MOQ 100 sets",
+    image: pTallScraper,
+    dims: "250 × 120 mm each",
+    pack: "Set of 4",
+    desc: "Tall-profile scrapers for multi-tier cakes. Four edge patterns — straight, wave, comb and zigzag.",
+  },
+
+  // ── Planters ──────────────────────────────────────────────────────────────
+  {
+    id: "flower-pot-5inch",
+    name: "Flower Pot 5 Inch",
+    category: "Planters",
+    moq: "MOQ 50 pcs",
+    image: pFlowerPot5,
+    dims: "Ø 125 × 110 mm",
+    pack: "Single with saucer",
+    desc: "Ribbed cylindrical pot with matching saucer. Ideal for windowsill herbs and small succulents. Multiple colours.",
+  },
+  {
+    id: "flower-pot-7inch-d1",
+    name: "Flower Pot 7 Inch — Design 1",
+    category: "Planters",
+    moq: "MOQ 50 pcs",
+    badge: "Bestseller",
+    image: pFlowerPot7d1,
+    dims: "Ø 175 × 155 mm",
+    pack: "Single with saucer",
+    desc: "Vertical-ribbed pot in six colour options. Drainage hole and saucer included. Stackable for easy storage.",
+  },
+  {
+    id: "flower-pot-7inch-d2",
+    name: "Flower Pot 7 Inch — Design 2",
+    category: "Planters",
+    moq: "MOQ 50 pcs",
+    image: pFlowerPot7d2,
+    dims: "Ø 175 × 155 mm",
+    pack: "Single with saucer",
+    desc: "Horizontal-banded design in muted tones. Matches a range of interior styles from minimal to eclectic.",
+  },
+  {
+    id: "flower-pot-8inch-diamond",
+    name: "Flower Pot 8 Inch Diamond Shape",
+    category: "Planters",
+    moq: "MOQ 25 pcs",
+    badge: "New",
+    image: pFlowerPot8Diamond,
+    dims: "Ø 200 × 180 mm",
+    pack: "Single with saucer",
+    desc: "Geometric faceted exterior gives a modern architectural feel. Lightweight, UV-stabilised body.",
+  },
+  {
+    id: "flower-pot-8inch-m3",
+    name: "Flower Pot 8 Inch M3",
+    category: "Planters",
+    moq: "MOQ 25 pcs",
+    image: pFlowerPot8m3,
+    dims: "Ø 200 × 175 mm",
+    pack: "Single with saucer",
+    desc: "Classic tapered form in soft botanical colours. Pairs well with snake plants, peace lilies and pothos.",
+  },
+  {
+    id: "flower-pot-8inch-m4",
+    name: "Flower Pot 8 Inch M4",
+    category: "Planters",
+    moq: "MOQ 25 pcs",
+    image: pFlowerPot8m4,
+    dims: "Ø 200 × 175 mm",
+    pack: "Single with saucer",
+    desc: "Wide-mouth pot with subtle horizontal ridging. Available in earthy neutrals — grey, teal, white and mustard.",
+  },
 ];
