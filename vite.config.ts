@@ -12,6 +12,8 @@ export default defineConfig({
   },
   nitro: {
     preset: "vercel",
+    // Lovable config hardcodes output to dist/ — override so Vercel
+    // reads the routing config from .vercel/output/config.json
     output: {
       dir: ".vercel/output",
       serverDir: ".vercel/output/functions/fn.func",
