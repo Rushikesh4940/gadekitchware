@@ -133,7 +133,6 @@ function ProductDetail() {
                   { label: "Dimensions", value: product.dims },
                   { label: "Pack", value: product.pack },
                   { label: "Material", value: "Food-grade polymer (BPA-free)" },
-                  { label: "Warranty", value: "12 months" },
                 ].map(({ label, value }) => (
                   <div key={label} className="flex items-center gap-4 px-4 py-3 text-sm">
                     <span className="w-28 shrink-0 text-muted-foreground">{label}</span>
@@ -150,6 +149,7 @@ function ProductDetail() {
                 "Dishwasher safe up to 70 °C",
                 "Available in multiple colourways",
                 "Pan India delivery",
+                "Price includes GST",
               ].map((t) => (
                 <li key={t} className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Check className="h-3.5 w-3.5 shrink-0 text-primary" /> {t}
