@@ -149,7 +149,6 @@ function ProductDetail() {
                 "Dishwasher safe up to 70 °C",
                 "Available in multiple colourways",
                 "Pan India delivery",
-                "Price includes GST",
               ].map((t) => (
                 <li key={t} className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Check className="h-3.5 w-3.5 shrink-0 text-primary" /> {t}
