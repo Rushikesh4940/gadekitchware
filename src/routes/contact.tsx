@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -31,9 +31,10 @@ function ContactPage() {
       <section className="container-x grid gap-12 py-20 md:grid-cols-12">
         <div className="md:col-span-5">
           <div className="space-y-8 border-t border-border pt-8">
-            <ContactRow icon={Phone} label="Phone" value="+91 89765 70008" />
-            <ContactRow icon={MessageCircle} label="WhatsApp" value="+91 89765 70008" />
-            <ContactRow icon={Mail} label="Email" value="hello@gadekitchware.com" />
+            <ContactRow icon={Phone} label="Contact Person" value="Sankesh Gade" />
+            <ContactRow icon={Phone} label="Phone / WhatsApp" value="+91 89765 70008" />
+            <ContactRow icon={Mail} label="Email" value={"gadekitchenware@gmail.com\nsanket.gade2@gmail.com"} />
+            <ContactRow icon={Instagram} label="Instagram" value="@gadekitchenware" href="https://www.instagram.com/gadekitchenware/" />
             <ContactRow icon={MapPin} label="Address" value={"H.No.2/1, Gala No.9, S No. 46/C\nShivam Industries, Gauraipada Road\nAsai, Vasai East — 401208\nMaharashtra, India"} />
           </div>
           <div className="mt-8 rounded-lg border border-border bg-muted/40 px-4 py-3 text-xs text-muted-foreground">
@@ -62,13 +63,17 @@ function ContactPage() {
   );
 }
 
-function ContactRow({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) {
+function ContactRow({ icon: Icon, label, value, href }: { icon: React.ElementType; label: string; value: string; href?: string }) {
   return (
     <div className="flex gap-4">
       <Icon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
       <div>
         <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{label}</div>
-        <div className="mt-1 whitespace-pre-line text-sm leading-relaxed">{value}</div>
+        {href ? (
+          <a href={href} target="_blank" rel="noopener noreferrer" className="mt-1 block whitespace-pre-line text-sm leading-relaxed hover:text-primary">{value}</a>
+        ) : (
+          <div className="mt-1 whitespace-pre-line text-sm leading-relaxed">{value}</div>
+        )}
       </div>
     </div>
   );

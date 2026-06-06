@@ -41,6 +41,8 @@ export function Footer() {
             Asai, Vasai East — 401208<br />
             Maharashtra, India<br />
             <a href="tel:+918976570008" className="mt-2 block hover:text-primary">+91 89765 70008</a>
+            <a href="mailto:gadekitchenware@gmail.com" className="mt-1 block hover:text-primary">gadekitchenware@gmail.com</a>
+            <a href="https://www.instagram.com/gadekitchenware/" target="_blank" rel="noopener noreferrer" className="mt-1 block hover:text-primary">@gadekitchenware</a>
           </address>
         </div>
       </div>

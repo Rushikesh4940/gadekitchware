@@ -42,12 +42,12 @@ function AboutPage() {
 
       <section className="container-x grid gap-16 pb-24 md:grid-cols-12">
         <div className="md:col-span-5">
-          <h2 className="font-display text-3xl md:text-4xl leading-tight">From a single moulding line to a household name.</h2>
+          <h2 className="font-display text-3xl md:text-4xl leading-tight">Plastic Kitchenware made for real occasions.</h2>
         </div>
         <div className="md:col-span-7 space-y-6 text-muted-foreground leading-relaxed">
-          <p>We began in 2017 with one injection-moulding machine in Maharashtra and a small team obsessed with tolerances. The first product was an airtight container — still in the catalogue today, refined across nine generations of tooling.</p>
-          <p>Eight years on, GADE products ship to homes across all Indian states and to distributors in five neighbouring countries. The machines are bigger and there are more of them, but the obsession hasn't moved.</p>
-          <p>We test every batch. We refine tools when feedback warrants it. We keep prices fair because the people buying our products are the ones who use them, every day.</p>
+          <p>We manufacture plastic kitchenware — including our signature Millennium Set — for occasional events in wide varieties. Every piece is produced using quality material, making GADE products a trusted choice for clients and an ideal option for gifting purposes.</p>
+          <p>Our range is available in different colours and attractive designs, crafted to suit the diverse demands and preferences of our clients. Whether for a wedding, festive occasion or corporate gifting, there is a GADE set that fits.</p>
+          <p>We offer these sets at competitive prices, keeping them affordable for both domestic households and commercial buyers without compromising on quality.</p>
         </div>
       </section>
 
