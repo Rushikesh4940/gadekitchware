@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { Download } from "lucide-react";
 import { products, categories, waLink } from "@/lib/products";
 
 export const Route = createFileRoute("/products/")({
@@ -35,6 +36,14 @@ function ProductsPage() {
           <p className="mt-6 max-w-xl text-muted-foreground rise-3">
             {products.length} products across {categories.length} categories. Filter by what you need.
           </p>
+          <a
+            href="/gade-product-catalogue.pdf"
+            download="Gade-Product-Catalogue.pdf"
+            className="rise-3 mt-8 inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            <Download className="h-4 w-4" />
+            Download Full Catalogue (PDF)
+          </a>
         </div>
       </section>
 

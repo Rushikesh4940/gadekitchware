@@ -22,6 +22,15 @@ export function Footer() {
             <li><Link to="/about" className="hover:text-primary">About</Link></li>
             <li><Link to="/distributors" className="hover:text-primary">Distributors</Link></li>
             <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
+            <li>
+              <a
+                href="/gade-product-catalogue.pdf"
+                download="Gade-Product-Catalogue.pdf"
+                className="hover:text-primary"
+              >
+                Download Catalogue ↓
+              </a>
+            </li>
           </ul>
         </div>
         <div>

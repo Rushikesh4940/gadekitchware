@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const nav = [
@@ -36,12 +36,14 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Link
-            to="/contact"
+          <a
+            href="/gade-product-catalogue.pdf"
+            download="Gade-Product-Catalogue.pdf"
             className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-deep"
           >
-            Request Catalogue
-          </Link>
+            <Download className="h-4 w-4" />
+            Download Catalogue
+          </a>
         </div>
 
         <button
@@ -67,13 +69,15 @@ export function Header() {
                 {n.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
+            <a
+              href="/gade-product-catalogue.pdf"
+              download="Gade-Product-Catalogue.pdf"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
             >
-              Request Catalogue
-            </Link>
+              <Download className="h-4 w-4" />
+              Download Catalogue
+            </a>
           </div>
         </div>
       )}
