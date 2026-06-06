@@ -50,11 +50,14 @@ function ProductsPage() {
       <section className="container-x py-14 md:py-20">
         <div className="flex flex-wrap items-center gap-2 border-b border-border pb-6">
           <FilterChip active={filter === "all"} onClick={() => setFilter("all")}>All ({products.length})</FilterChip>
-          {categories.map((c) => (
-            <FilterChip key={c.slug} active={filter === c.slug} onClick={() => setFilter(c.slug)}>
-              {c.name} ({c.count})
-            </FilterChip>
-          ))}
+          {categories.map((c) => {
+            const count = products.filter((p) => p.category === c.name).length;
+            return (
+              <FilterChip key={c.slug} active={filter === c.slug} onClick={() => setFilter(c.slug)}>
+                {c.name} ({count})
+              </FilterChip>
+            );
+          })}
         </div>
 
         <div className="mt-12 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
