@@ -112,11 +112,7 @@ function ProductDetail() {
                 <span className="font-display text-4xl text-primary">{product.price}</span>
                 <span className="text-sm text-muted-foreground">/ unit</span>
               </div>
-              <div className="mt-1.5 flex items-center gap-2 text-sm">
-                <span className="font-medium">{product.moq}</span>
-                <span className="text-muted-foreground">·</span>
-                <span className="text-muted-foreground">Bulk pricing on request</span>
-              </div>
+              <div className="mt-1.5 text-sm font-medium">{product.moq}</div>
             </div>
 
             {/* Description */}
