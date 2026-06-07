@@ -52,6 +52,11 @@ import pModakMould3 from "@/assets/products/modak-mould-3.jpg";
 import pModakMould4 from "@/assets/products/modak-mould-4.jpeg";
 import pModakMould5 from "@/assets/products/modak-mould-5.jpeg";
 import pModakMouldSet from "@/assets/products/Modak-mould-set.png";
+import pModak3fold from "@/assets/products/modak-3fold.jpg";
+import pModak4combo from "@/assets/products/modak-4pcs-combo.jpg";
+import pSpiceJarOrg from "@/assets/products/camping-spice-jar-organizer.jpg";
+import pContainerDesk from "@/assets/products/container-desk-organizer.jpg";
+import pContainerTissue from "@/assets/products/container-tissue-holder.jpg";
 import pPaniPuri from "@/assets/products/pani-puri-plate.jpg";
 import pCrabDish from "@/assets/products/crab-dish.png";
 
@@ -679,6 +684,30 @@ export const products: Product[] = [
     desc: "Larger five-piece set for high-volume modak making. Consistent shape and defined ridges every batch.",
   },
   {
+    id: "modak-3fold",
+    name: "Modak 3 Fold Mould",
+    category: "Kitchen Makers",
+    price: "On request",
+    moq: "Contact us",
+    badge: "New",
+    image: pModak3fold,
+    dims: "90 × 70 mm",
+    pack: "Single",
+    desc: "3-fold plastic modak mould — fill, fold and press to shape perfectly ridged modak in seconds. Easy-release design.",
+  },
+  {
+    id: "modak-4pcs-combo",
+    name: "Modak 4 Pcs Combo Set",
+    category: "Kitchen Makers",
+    price: "On request",
+    moq: "Contact us",
+    badge: "New",
+    image: pModak4combo,
+    dims: "Varies",
+    pack: "Set of 4",
+    desc: "Combo set of 4 modak moulds in different sizes. Make ukadiche modak for the whole family at once.",
+  },
+  {
     id: "modak-mould-set",
     name: "Plastic Modak Mould Complete Set",
     category: "Kitchen Makers",
@@ -1061,6 +1090,42 @@ export const products: Product[] = [
     dims: "380 × 30 × 260 mm",
     pack: "Single",
     desc: "Space-saving 5-tier pant hanger. Holds 5 trousers in the space of one. Non-slip bars, swivel hook.",
+  },
+  {
+    id: "camping-spice-jar-organizer",
+    name: "Stackable Spice Jar Organizer",
+    category: "Storage & Organizers",
+    price: "On request",
+    moq: "Contact us",
+    badge: "New",
+    image: pSpiceJarOrg,
+    dims: "Ø 60 × 55 mm each",
+    pack: "Set of 4",
+    desc: "Four clear stackable jars that lock together for travel or camping. Each jar holds spices, condiments or dry ingredients. Airtight, BPA-free.",
+  },
+  {
+    id: "container-desk-organizer",
+    name: "Container Shape Desk Organizer",
+    category: "Storage & Organizers",
+    price: "On request",
+    moq: "Contact us",
+    badge: "New",
+    image: pContainerDesk,
+    dims: "230 × 110 × 100 mm",
+    pack: "Single",
+    desc: "Novelty shipping-container shaped desk organizer with multiple compartments for pens, scissors, cards and stationery. Available in multiple colour variants.",
+  },
+  {
+    id: "container-tissue-holder",
+    name: "Container Shape Tissue Holder",
+    category: "Bathroom & Home",
+    price: "On request",
+    moq: "Contact us",
+    badge: "New",
+    image: pContainerTissue,
+    dims: "250 × 130 × 120 mm",
+    pack: "Single",
+    desc: "Shipping-container shaped tissue box holder. A fun, conversation-starting piece for desks, living rooms and offices.",
   },
   {
     id: "broom-holder",
