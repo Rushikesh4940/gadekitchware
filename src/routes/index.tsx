@@ -200,7 +200,10 @@ function Home() {
           </div>
 
           <div className="mt-14 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {products.slice(0, 4).map((p) => (
+            {["container-desk-organizer", "flower-pot-7inch-d1", "modak-3fold", "toothbrush-holder-teddy"]
+              .map((id) => products.find((p) => p.id === id)!)
+              .filter(Boolean)
+              .map((p) => (
               <div key={p.id} className="group">
                 <Link to="/products/$id" params={{ id: p.id }}>
                   <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-card">
