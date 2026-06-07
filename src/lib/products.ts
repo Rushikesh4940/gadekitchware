@@ -51,6 +51,7 @@ import pMomosMaker from "@/assets/products/momos-maker.png";
 import pModakMould3 from "@/assets/products/modak-mould-3.jpg";
 import pModakMould4 from "@/assets/products/modak-mould-4.jpeg";
 import pModakMould5 from "@/assets/products/modak-mould-5.jpeg";
+import pModakMouldSet from "@/assets/products/Modak-mould-set.png";
 import pPaniPuri from "@/assets/products/pani-puri-plate.jpg";
 import pCrabDish from "@/assets/products/crab-dish.png";
 
@@ -116,11 +117,11 @@ export const categories: Category[] = [
     blurb: "Grid boxes, drawer dividers, desk organizers and tool cases for every corner of your home.",
   },
   {
-    slug: "baking",
-    name: "Baking Tools",
-    count: 6,
+    slug: "bakeware",
+    name: "Bakeware",
+    count: 14,
     image: pCakescraper3,
-    blurb: "Scrapers, fondant tools and cereal dispensers for clean, professional results.",
+    blurb: "Scrapers, fondant tools, cereal dispensers, measuring cups, spoons and masala sets.",
   },
   {
     slug: "planters",
@@ -132,7 +133,7 @@ export const categories: Category[] = [
   {
     slug: "kitchen-makers",
     name: "Kitchen Makers",
-    count: 13,
+    count: 14,
     image: pKaranjiNo1,
     blurb: "Moulds and makers for karanji, samosa, modak, momos and more Indian favourites.",
   },
@@ -142,13 +143,6 @@ export const categories: Category[] = [
     count: 8,
     image: pEgg24,
     blurb: "Egg boxes and expandable fridge trays to keep your refrigerator neat.",
-  },
-  {
-    slug: "measuring",
-    name: "Measuring Tools",
-    count: 8,
-    image: pMeasuringCups5,
-    blurb: "Measuring cups, spoons and masala sets for precise cooking every time.",
   },
   {
     slug: "bathroom-home",
@@ -426,7 +420,7 @@ export const products: Product[] = [
   {
     id: "cakescraper-3pc",
     name: "Cakescraper 3 Pcs Set",
-    category: "Baking Tools",
+    category: "Bakeware",
     price: "₹ 70",
     moq: "MOQ 100 pcs",
     image: pCakescraper3,
@@ -437,7 +431,7 @@ export const products: Product[] = [
   {
     id: "cakescraper-4pc",
     name: "Cakescraper 4 Pcs Set",
-    category: "Baking Tools",
+    category: "Bakeware",
     price: "₹ 70",
     moq: "MOQ 100 pcs",
     badge: "Popular",
@@ -449,7 +443,7 @@ export const products: Product[] = [
   {
     id: "tall-scraper-4pc-a",
     name: "Tall Scraper Set of 4 Pcs — Design A",
-    category: "Baking Tools",
+    category: "Bakeware",
     price: "₹ 70",
     moq: "MOQ 100 pcs",
     image: pTallScraperA,
@@ -460,7 +454,7 @@ export const products: Product[] = [
   {
     id: "tall-scraper-4pc-b",
     name: "Tall Scraper Set of 4 Pcs — Design B",
-    category: "Baking Tools",
+    category: "Bakeware",
     price: "₹ 70",
     moq: "MOQ 100 pcs",
     image: pTallScraperB,
@@ -471,7 +465,7 @@ export const products: Product[] = [
   {
     id: "fondant-tool-set-8pc",
     name: "8 Pcs Fondant Cake Decorative Tool Set",
-    category: "Baking Tools",
+    category: "Bakeware",
     price: "₹ 18",
     moq: "MOQ 800 pcs",
     image: pFondantTool,
@@ -482,7 +476,7 @@ export const products: Product[] = [
   {
     id: "cereal-dispenser-3pc",
     name: "Set of 3 Cereal Dispenser",
-    category: "Baking Tools",
+    category: "Bakeware",
     price: "₹ 120",
     moq: "MOQ 46 pcs",
     image: pCerealDispenser,
@@ -653,7 +647,7 @@ export const products: Product[] = [
   },
   {
     id: "modak-mould-3",
-    name: "Plastic Modak Mould — 3 Count",
+    name: "Modak Patti 3",
     category: "Kitchen Makers",
     price: "₹ 4.5",
     moq: "Contact us",
@@ -664,7 +658,7 @@ export const products: Product[] = [
   },
   {
     id: "modak-mould-4",
-    name: "Plastic Modak Mould — 4 Count",
+    name: "Modak Patti 2",
     category: "Kitchen Makers",
     price: "₹ 5.5",
     moq: "Contact us",
@@ -675,7 +669,7 @@ export const products: Product[] = [
   },
   {
     id: "modak-mould-5",
-    name: "Plastic Modak Mould — 5 Count",
+    name: "Modak Patti 1",
     category: "Kitchen Makers",
     price: "₹ 6.5",
     moq: "Contact us",
@@ -683,6 +677,18 @@ export const products: Product[] = [
     dims: "90 × 70 mm each",
     pack: "Set of 5",
     desc: "Larger five-piece set for high-volume modak making. Consistent shape and defined ridges every batch.",
+  },
+  {
+    id: "modak-mould-set",
+    name: "Plastic Modak Mould Complete Set",
+    category: "Kitchen Makers",
+    price: "On request",
+    moq: "Contact us",
+    badge: "New",
+    image: pModakMouldSet,
+    dims: "Small / Medium / Large",
+    pack: "Set of 3 sizes",
+    desc: "Complete set of all three plastic modak moulds — small, medium and large — for making ukadiche modak in every size. Easy-release halves, defined ridges.",
   },
   {
     id: "pani-puri-plate",
@@ -802,7 +808,7 @@ export const products: Product[] = [
   {
     id: "measuring-cups-5pc",
     name: "5 Pcs Measuring Cups Multi Color",
-    category: "Measuring Tools",
+    category: "Bakeware",
     price: "₹ 26",
     moq: "MOQ 360 pcs",
     badge: "Bestseller",
@@ -814,7 +820,7 @@ export const products: Product[] = [
   {
     id: "measuring-spoon-5pc",
     name: "5 Pcs Measuring Spoon",
-    category: "Measuring Tools",
+    category: "Bakeware",
     price: "₹ 14",
     moq: "MOQ 312 pcs",
     image: pMeasuringSpoon5,
@@ -825,7 +831,7 @@ export const products: Product[] = [
   {
     id: "measuring-cup-spoon-12pc",
     name: "12 Pcs Measuring Cup and Spoon Set",
-    category: "Measuring Tools",
+    category: "Bakeware",
     price: "₹ 40",
     moq: "MOQ 300 pcs",
     badge: "Popular",
@@ -837,7 +843,7 @@ export const products: Product[] = [
   {
     id: "measuring-spoon-8pc-black",
     name: "8 Pcs Measuring Spoon Black",
-    category: "Measuring Tools",
+    category: "Bakeware",
     price: "₹ 22",
     moq: "MOQ 250 pcs",
     image: pMeasuringSpoon8,
@@ -848,7 +854,7 @@ export const products: Product[] = [
   {
     id: "masala-spoon-5pc-d2",
     name: "Acrylic Masala Spoon Pack of 5 — Design 2",
-    category: "Measuring Tools",
+    category: "Bakeware",
     price: "₹ 22",
     moq: "MOQ 480 pcs",
     image: pMasalaD2,
@@ -859,7 +865,7 @@ export const products: Product[] = [
   {
     id: "masala-spoon-5pc-d3",
     name: "Acrylic Masala Spoon Pack of 5 — Design 3",
-    category: "Measuring Tools",
+    category: "Bakeware",
     price: "₹ 20",
     moq: "MOQ 480 pcs",
     image: pMasalaD3,
@@ -870,7 +876,7 @@ export const products: Product[] = [
   {
     id: "masala-spoon-5pc-d4",
     name: "Acrylic Masala Spoon Pack of 5 — Design 4",
-    category: "Measuring Tools",
+    category: "Bakeware",
     price: "₹ 22",
     moq: "MOQ 576 pcs",
     image: pMasalaD4,
@@ -881,7 +887,7 @@ export const products: Product[] = [
   {
     id: "masala-spoon-10pc-d1",
     name: "Masala Spoon Pack of 10 — Design 1",
-    category: "Measuring Tools",
+    category: "Bakeware",
     price: "₹ 20",
     moq: "MOQ 576 pcs",
     image: pMasala10,
