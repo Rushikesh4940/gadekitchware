@@ -55,6 +55,9 @@ function ProductDetail() {
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
 
+  const hasPrice = product.price !== "On request";
+  const priceValue = hasPrice ? product.price.replace(/[^\d.]/g, "").trim() : undefined;
+
   const productSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Product",
@@ -67,9 +70,24 @@ function ProductDetail() {
     offers: {
       "@type": "Offer",
       priceCurrency: "INR",
-      price: product.price.replace(/[^\d.]/g, "") || undefined,
+      ...(hasPrice && priceValue ? { price: priceValue } : {}),
       availability: "https://schema.org/InStock",
       seller: { "@type": "Organization", name: "GADE Kitchenware" },
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: { "@type": "MonetaryAmount", currency: "INR" },
+        shippingDestination: { "@type": "DefinedRegion", addressCountry: "IN" },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 3, unitCode: "d" },
+          transitTime: { "@type": "QuantitativeValue", minValue: 3, maxValue: 7, unitCode: "d" },
+        },
+      },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "IN",
+        returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+      },
     },
   });
 
