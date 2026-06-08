@@ -4,10 +4,12 @@ import { Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — GADE Kitchenware" },
-      { name: "description", content: "Get in touch with GADE Kitchenware for product enquiries, catalogue requests, distribution and bulk orders." },
-      { property: "og:title", content: "Contact GADE Kitchenware" },
-      { property: "og:description", content: "Reach our team for product, catalogue and distribution enquiries." },
+      { title: "Contact GADE Kitchenware — Wholesale Enquiries, Mumbai | +91 89765 70008" },
+      { name: "description", content: "Contact GADE Kitchenware for wholesale enquiries, bulk orders and catalogue requests. Reach Sankesh Gade at +91 89765 70008 or gadekitchenware@gmail.com. Vasai East, Mumbai." },
+      { name: "keywords", content: "contact GADE Kitchenware, plastic kitchenware wholesale enquiry, bulk order kitchen products India, Sankesh Gade contact, Vasai Mumbai kitchenware supplier" },
+      { property: "og:title", content: "Contact GADE Kitchenware — Wholesale Enquiries Mumbai" },
+      { property: "og:description", content: "Wholesale enquiries, bulk orders and catalogue requests. Call +91 89765 70008 or WhatsApp us. Based in Vasai East, Mumbai, Maharashtra." },
+      { property: "og:url", content: "https://www.gadekitchenware.com/contact" },
     ],
   }),
   component: ContactPage,

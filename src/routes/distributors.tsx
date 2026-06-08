@@ -4,10 +4,12 @@ import { Check, Download, Truck } from "lucide-react";
 export const Route = createFileRoute("/distributors")({
   head: () => ({
     meta: [
-      { title: "Distributors & Wholesalers — GADE Kitchenware" },
-      { name: "description", content: "Partner with GADE for wholesale and distribution of premium household and kitchen utility products across India." },
-      { property: "og:title", content: "Distributors & Wholesalers — GADE Kitchenware" },
-      { property: "og:description", content: "Margin-friendly pricing, bulk orders, and product designed for genuine sell-through." },
+      { title: "Become a Distributor — GADE Kitchenware Wholesale Partnership India" },
+      { name: "description", content: "Partner with GADE Kitchenware as a wholesale distributor or retailer. Competitive MOQs, margin-friendly pricing, bulk supply of plastic kitchen and home products across India." },
+      { name: "keywords", content: "GADE Kitchenware distributor, plastic kitchenware wholesale partner India, kitchen products distributor Mumbai, household plastic wholesale dealership, B2B kitchenware supplier India" },
+      { property: "og:title", content: "Become a GADE Kitchenware Distributor — Wholesale Partnership India" },
+      { property: "og:description", content: "Wholesale and distribution partnerships for plastic kitchen racks, organisers, modak moulds and home essentials. Competitive pricing, pan India delivery." },
+      { property: "og:url", content: "https://www.gadekitchenware.com/distributors" },
     ],
   }),
   component: DistributorsPage,

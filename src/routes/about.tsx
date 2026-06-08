@@ -4,10 +4,12 @@ import story from "@/assets/story.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About GADE Kitchenware — 8 Years of Indian Manufacturing" },
-      { name: "description", content: "GADE Kitchenware has been engineering modern household and kitchen utility products in India since 2017." },
-      { property: "og:title", content: "About GADE Kitchenware" },
-      { property: "og:description", content: "8 years of Indian household manufacturing — engineered to last." },
+      { title: "About GADE Kitchenware — Plastic Kitchenware Manufacturer, Mumbai Since 2017" },
+      { name: "description", content: "GADE Kitchenware, manufactured by Kamal Enterprises in Vasai East, Mumbai. Producing premium plastic kitchenware — Millennium Sets, kitchen organisers, Indian food makers and home essentials since 2017." },
+      { name: "keywords", content: "GADE Kitchenware about, Kamal Enterprises Mumbai, plastic kitchenware manufacturer Vasai, Millennium Set manufacturer India, household plastic manufacturer Maharashtra" },
+      { property: "og:title", content: "About GADE Kitchenware — Plastic Kitchenware Manufacturer, Mumbai" },
+      { property: "og:description", content: "Manufactured by Kamal Enterprises, Vasai East, Mumbai. Quality plastic kitchenware for occasions, gifting and everyday use. Available in multiple colours and designs." },
+      { property: "og:url", content: "https://www.gadekitchenware.com/about" },
     ],
   }),
   component: AboutPage,

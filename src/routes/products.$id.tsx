@@ -8,15 +8,29 @@ export const Route = createFileRoute("/products/$id")({
     if (!product) throw notFound();
     return { product };
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: loaderData ? `${loaderData.product.name} — GADE Kitchenware` : "Product — GADE" },
-      { name: "description", content: loaderData?.product.desc ?? "GADE product" },
-      { property: "og:title", content: loaderData?.product.name ?? "GADE product" },
-      { property: "og:description", content: loaderData?.product.desc ?? "GADE product" },
-      ...(loaderData?.product.image ? [{ property: "og:image", content: loaderData.product.image }] : []),
-    ],
-  }),
+  head: ({ loaderData }) => {
+    const p = loaderData?.product;
+    const title = p ? `${p.name} — Buy Wholesale | GADE Kitchenware` : "Product — GADE Kitchenware";
+    const desc = p ? `${p.desc} ${p.price !== "On request" ? `Price: ${p.price}.` : ""} ${p.moq}. Wholesale enquiries welcome.` : "GADE Kitchenware product";
+    const url = p ? `https://www.gadekitchenware.com/products/${p.id}` : "https://www.gadekitchenware.com/products";
+    const image = p?.image ? `https://www.gadekitchenware.com${p.image}` : "https://www.gadekitchenware.com/og-image.jpg";
+    return {
+      meta: [
+        { title },
+        { name: "description", content: desc },
+        { name: "keywords", content: p ? `${p.name}, ${p.category} wholesale India, buy ${p.name} bulk, GADE Kitchenware` : "GADE Kitchenware" },
+        { name: "robots", content: "index, follow" },
+        { property: "og:title", content: p?.name ?? "GADE Product" },
+        { property: "og:description", content: desc },
+        { property: "og:url", content: url },
+        { property: "og:image", content: image },
+        { property: "og:type", content: "product" },
+        { name: "twitter:title", content: p?.name ?? "GADE Product" },
+        { name: "twitter:description", content: desc },
+        { name: "twitter:image", content: image },
+      ],
+    };
+  },
   component: ProductDetail,
   notFoundComponent: () => (
     <div className="container-x py-32 text-center">
@@ -41,8 +55,38 @@ function ProductDetail() {
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
 
+  const productSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.desc,
+    image: `https://www.gadekitchenware.com${product.image}`,
+    brand: { "@type": "Brand", name: "GADE" },
+    manufacturer: { "@type": "Organization", name: "Kamal Enterprises" },
+    category: product.category,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "INR",
+      price: product.price.replace(/[^\d.]/g, "") || undefined,
+      availability: "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: "GADE Kitchenware" },
+    },
+  });
+
+  const breadcrumbSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.gadekitchenware.com/" },
+      { "@type": "ListItem", position: 2, name: "Products", item: "https://www.gadekitchenware.com/products" },
+      { "@type": "ListItem", position: 3, name: product.name, item: `https://www.gadekitchenware.com/products/${product.id}` },
+    ],
+  });
+
   return (
     <div className="min-h-screen bg-background">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: productSchema }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbSchema }} />
 
       {/* Breadcrumb */}
       <div className="border-b border-border bg-muted/30">

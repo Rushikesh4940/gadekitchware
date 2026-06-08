@@ -6,10 +6,12 @@ import { products, categories, waLink } from "@/lib/products";
 export const Route = createFileRoute("/products/")({
   head: () => ({
     meta: [
-      { title: "Products — GADE Kitchenware" },
-      { name: "description", content: "Browse the full GADE catalogue: kitchen racks, storage organizers, baking tools and planters." },
-      { property: "og:title", content: "Products — GADE Kitchenware" },
-      { property: "og:description", content: "Browse the full GADE catalogue of premium household and kitchen utility products." },
+      { title: "Wholesale Products — GADE Kitchenware | Kitchen Racks, Organisers, Bakeware & More" },
+      { name: "description", content: "Browse 80+ wholesale plastic products: kitchen racks, storage organisers, modak moulds, karanji makers, measuring tools, flower pots, egg storage boxes and bathroom accessories." },
+      { name: "keywords", content: "plastic kitchen products wholesale, kitchen rack India, storage organizer wholesale, modak mould, karanji maker, flower pot wholesale, measuring cups supplier, bakeware wholesale, egg storage box, bathroom organizer wholesale India" },
+      { property: "og:title", content: "Wholesale Products — GADE Kitchenware" },
+      { property: "og:description", content: "80+ wholesale plastic products across 7 categories. Kitchen racks, organisers, bakeware, planters, kitchen makers, egg & fridge storage and bathroom essentials." },
+      { property: "og:url", content: "https://www.gadekitchenware.com/products" },
     ],
   }),
   component: ProductsPage,

@@ -7,18 +7,46 @@ import { categories, products, waLink } from "@/lib/products";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GADE Kitchenware — Smart Utility Products for Modern Living" },
-      { name: "description", content: "Premium kitchen storage, racks, organizers and household utility products engineered in India." },
-      { property: "og:title", content: "GADE Kitchenware — Smart Utility Products for Modern Living" },
-      { property: "og:description", content: "Premium kitchen storage, racks, organizers and household utility products engineered in India." },
+      { title: "GADE Kitchenware — Plastic Kitchen & Home Products Wholesale | Made in India" },
+      { name: "description", content: "India's trusted wholesale supplier of plastic kitchenware. Kitchen racks, modak moulds, karanji makers, storage organisers, flower pots & more. B2B bulk orders. Pan India delivery." },
+      { name: "keywords", content: "GADE Kitchenware, plastic kitchenware wholesale, kitchen rack wholesale Mumbai, modak mould supplier India, karanji maker manufacturer, plastic household products wholesale" },
+      { property: "og:title", content: "GADE Kitchenware — Plastic Kitchen & Home Products Wholesale" },
+      { property: "og:description", content: "India's trusted B2B wholesale supplier of plastic kitchen racks, organizers, modak moulds, karanji makers, flower pots and home essentials. Based in Mumbai." },
+      { property: "og:url", content: "https://www.gadekitchenware.com/" },
     ],
   }),
   component: Home,
 });
 
+const orgSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "GADE Kitchenware",
+  alternateName: "Kamal Enterprises",
+  url: "https://www.gadekitchenware.com",
+  logo: "https://www.gadekitchenware.com/favicon.png",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+91-89765-70008",
+    contactType: "sales",
+    areaServed: "IN",
+    availableLanguage: ["English", "Hindi", "Marathi"],
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "H.No.2/1, Gala No.9, S No. 46/C, Shivam Industries, Gauraipada Road, Asai",
+    addressLocality: "Vasai East",
+    addressRegion: "Maharashtra",
+    postalCode: "401208",
+    addressCountry: "IN",
+  },
+  sameAs: ["https://www.instagram.com/gadekitchenware/"],
+});
+
 function Home() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: orgSchema }} />
       {/* HERO */}
       <section className="bg-ivory">
         <div className="container-x grid gap-10 pb-20 pt-16 md:grid-cols-12 md:pb-28 md:pt-24">
