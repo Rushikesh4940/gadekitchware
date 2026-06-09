@@ -119,7 +119,8 @@ export const categories: Category[] = [
     name: "Storage & Organizers",
     count: 17,
     image: p15GridBox,
-    blurb: "Grid boxes, drawer dividers, desk organizers and tool cases for every corner of your home.",
+    blurb:
+      "Grid boxes, drawer dividers, desk organizers and tool cases for every corner of your home.",
   },
   {
     slug: "bakeware",
@@ -175,13 +176,12 @@ export const WHATSAPP_NUMBER = "918976570008";
 
 export function waLink(productName: string) {
   const msg = encodeURIComponent(
-    `Hi, I'm interested in the ${productName}. Please share pricing and availability.`
+    `Hi, I'm interested in the ${productName}. Please share pricing and availability.`,
   );
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 }
 
 export const products: Product[] = [
-
   // ── Kitchen Racks ───────────────────────────────────────────────────────────
   {
     id: "2-tier-kitchen-rack",
@@ -652,7 +652,7 @@ export const products: Product[] = [
   },
   {
     id: "modak-mould-small",
-    name: "Modak Patti No 3",
+    name: "modak-mould-small",
     category: "Kitchen Makers",
     price: "₹ 4.5",
     moq: "Contact us",
@@ -663,7 +663,7 @@ export const products: Product[] = [
   },
   {
     id: "modak-mould-medium",
-    name: "Modak Patti No 2",
+    name: "modak-mould-medium",
     category: "Kitchen Makers",
     price: "₹ 5.5",
     moq: "Contact us",
@@ -678,7 +678,7 @@ export const products: Product[] = [
     category: "Kitchen Makers",
     price: "₹ 6.5",
     moq: "Contact us",
-    image: pModakMouldSet,
+    image: pModakMould5,
     dims: "90 × 70 mm",
     pack: "Single",
     desc: "Grade 3 large plastic modak mould. Makes a big, impressive modak with deep defined ridges.",
