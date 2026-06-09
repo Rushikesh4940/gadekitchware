@@ -51,7 +51,6 @@ import pMomosMaker from "@/assets/products/momos-maker.png";
 import pModakMould3 from "@/assets/products/modak-mould-3.jpg";
 import pModakMould4 from "@/assets/products/modak-mould-4.jpeg";
 import pModakMould5 from "@/assets/products/modak-mould-5.jpeg";
-import pModakMouldSet from "@/assets/products/Modak-mould-set.png";
 import pModak3fold from "@/assets/products/modak-3fold.jpg";
 import pModak4combo from "@/assets/products/modak-4pcs-combo.jpg";
 import pSpiceJarOrg from "@/assets/products/camping-spice-jar-organizer.jpg";
@@ -651,29 +650,29 @@ export const products: Product[] = [
     desc: "Circular press that folds and pleats momos dough with a single squeeze. Works for dim sum and dumplings too.",
   },
   {
-    id: "modak-mould-small",
-    name: "modak-mould-small",
+    id: "modak-patti-no-3",
+    name: "Modak Patti No 3",
     category: "Kitchen Makers",
     price: "₹ 4.5",
     moq: "Contact us",
-    image: pModakMouldSet,
+    image: pModakMould3,
     dims: "80 × 60 mm",
     pack: "Single",
     desc: "Grade 1 small plastic modak mould. Fill, press and release for perfectly ridged ukadiche modak.",
   },
   {
-    id: "modak-mould-medium",
-    name: "modak-mould-medium",
+    id: "modak-patti-no-2",
+    name: "Modak Patti No 2",
     category: "Kitchen Makers",
     price: "₹ 5.5",
     moq: "Contact us",
-    image: pModakMouldSet,
+    image: pModakMould4,
     dims: "85 × 65 mm",
     pack: "Single",
     desc: "Grade 2 medium plastic modak mould. Larger cavity for a generous serving-size modak.",
   },
   {
-    id: "modak-mould-large",
+    id: "modak-patti-no-1",
     name: "Modak Patti No 1",
     category: "Kitchen Makers",
     price: "₹ 6.5",
