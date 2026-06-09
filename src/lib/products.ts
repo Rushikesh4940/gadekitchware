@@ -652,7 +652,7 @@ export const products: Product[] = [
   },
   {
     id: "modak-mould-small",
-    name: "Modak Mould Small",
+    name: "Modak Patti No 3",
     category: "Kitchen Makers",
     price: "₹ 4.5",
     moq: "Contact us",
@@ -663,7 +663,7 @@ export const products: Product[] = [
   },
   {
     id: "modak-mould-medium",
-    name: "Modak Mould Medium",
+    name: "Modak Patti No 2",
     category: "Kitchen Makers",
     price: "₹ 5.5",
     moq: "Contact us",
@@ -674,7 +674,7 @@ export const products: Product[] = [
   },
   {
     id: "modak-mould-large",
-    name: "Modak Mould Large",
+    name: "Modak Patti No 1",
     category: "Kitchen Makers",
     price: "₹ 6.5",
     moq: "Contact us",
