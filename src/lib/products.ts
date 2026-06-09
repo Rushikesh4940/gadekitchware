@@ -51,6 +51,9 @@ import pMomosMaker from "@/assets/products/momos-maker.png";
 import pModakMould3 from "@/assets/products/modak-mould-3.jpg";
 import pModakMould4 from "@/assets/products/modak-mould-4.jpeg";
 import pModakMould5 from "@/assets/products/modak-mould-5.jpeg";
+import pModakSingleSmall from "@/assets/products/modak-mould-single-small.png";
+import pModakSingleMedium from "@/assets/products/modak-mould-single-medium.png";
+import pModakSingleLarge from "@/assets/products/modak-mould-single-large.png";
 import pModak3fold from "@/assets/products/modak-3fold.jpg";
 import pModak4combo from "@/assets/products/modak-4pcs-combo.jpg";
 import pSpiceJarOrg from "@/assets/products/camping-spice-jar-organizer.jpg";
@@ -681,6 +684,39 @@ export const products: Product[] = [
     dims: "90 × 70 mm",
     pack: "Single",
     desc: "Grade 3 large plastic modak mould. Makes a big, impressive modak with deep defined ridges.",
+  },
+  {
+    id: "modak-mould-small",
+    name: "Modak Mould Small",
+    category: "Kitchen Makers",
+    price: "₹ 4.5",
+    moq: "Contact us",
+    image: pModakSingleSmall,
+    dims: "80 × 60 mm",
+    pack: "Single",
+    desc: "Small plastic modak mould for making bite-sized ukadiche modak. Easy-release halves, defined ridges.",
+  },
+  {
+    id: "modak-mould-medium",
+    name: "Modak Mould Medium",
+    category: "Kitchen Makers",
+    price: "₹ 5.5",
+    moq: "Contact us",
+    image: pModakSingleMedium,
+    dims: "85 × 65 mm",
+    pack: "Single",
+    desc: "Medium plastic modak mould. A generous serving-size modak with crisp ridged pattern.",
+  },
+  {
+    id: "modak-mould-large",
+    name: "Modak Mould Large",
+    category: "Kitchen Makers",
+    price: "₹ 6.5",
+    moq: "Contact us",
+    image: pModakSingleLarge,
+    dims: "90 × 70 mm",
+    pack: "Single",
+    desc: "Large plastic modak mould. Makes a big, impressive modak with deep defined ridges.",
   },
   {
     id: "modak-3fold",
