@@ -72,10 +72,70 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.gadekitchenware.com/#website",
+      "url": "https://www.gadekitchenware.com/",
+      "name": "GADE Kitchenware",
+      "description": "Smart Utility Products for Modern Living — Kitchen racks, organizers, planters, baking tools and home essentials designed for Indian homes.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.gadekitchenware.com/products?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.gadekitchenware.com/#organization",
+      "name": "GADE Kitchenware",
+      "alternateName": "Kamal Enterprises",
+      "url": "https://www.gadekitchenware.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.gadekitchenware.com/favicon.png"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-89765-70008",
+        "contactType": "sales",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Hindi", "Marathi"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://wa.me/918976570008"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Site Navigation",
+      "itemListElement": [
+        { "@type": "SiteLinksSearchBox", "potentialAction": { "@type": "SearchAction", "target": "https://www.gadekitchenware.com/products" } },
+        { "@type": "ListItem", "position": 1, "name": "Products", "url": "https://www.gadekitchenware.com/products" },
+        { "@type": "ListItem", "position": 2, "name": "About Us", "url": "https://www.gadekitchenware.com/about" },
+        { "@type": "ListItem", "position": 3, "name": "Distributors", "url": "https://www.gadekitchenware.com/distributors" },
+        { "@type": "ListItem", "position": 4, "name": "Contact Us", "url": "https://www.gadekitchenware.com/contact" }
+      ]
+    }
+  ]
+};
+
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
         <script dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NM4LWTH8');` }} />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-37CSSCMZKN" />
         <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-37CSSCMZKN');` }} />
