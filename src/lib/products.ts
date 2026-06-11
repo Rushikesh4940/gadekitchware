@@ -55,6 +55,7 @@ import pModakSingleSmall from "@/assets/products/modak-mould-single-small.png";
 import pModakSingleMedium from "@/assets/products/modak-mould-single-medium.png";
 import pModakSingleLarge from "@/assets/products/modak-mould-single-large.png";
 import pModak3fold from "@/assets/products/modak-3fold.jpg";
+import pModak1kg from "@/assets/products/modak-mould-1kg.jpg";
 import pModak4combo from "@/assets/products/modak-4pcs-combo.jpg";
 import pSpiceJarOrg from "@/assets/products/camping-spice-jar-organizer.jpg";
 import pContainerDesk from "@/assets/products/container-desk-organizer.jpg";
@@ -741,6 +742,18 @@ export const products: Product[] = [
     dims: "Varies",
     pack: "Set of 4",
     desc: "Combo set of 4 modak moulds in different sizes. Make ukadiche modak for the whole family at once.",
+  },
+  {
+    id: "modak-mould-1kg",
+    name: "1 KG Modak Mould — Big Modak",
+    category: "Kitchen Makers",
+    price: "₹ 250",
+    moq: "MOQ 1000 pcs",
+    badge: "New",
+    image: pModak1kg,
+    dims: "Approx. 1 kg capacity",
+    pack: "Single",
+    desc: "Extra-large 1 kg modak mould for making big, festive modak. Perfect for bulk preparation during Ganesh Chaturthi. Food-grade plastic, easy press-and-release design.",
   },
   {
     id: "pani-puri-plate",
