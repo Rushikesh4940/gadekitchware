@@ -13,6 +13,9 @@ export const Route = createFileRoute("/products/")({
       { property: "og:description", content: "80+ wholesale plastic products across 7 categories. Kitchen racks, organisers, bakeware, planters, kitchen makers, egg & fridge storage and bathroom essentials." },
       { property: "og:url", content: "https://www.gadekitchenware.com/products" },
     ],
+    links: [
+      { rel: "canonical", href: "https://www.gadekitchenware.com/products" },
+    ],
   }),
   component: ProductsPage,
 });

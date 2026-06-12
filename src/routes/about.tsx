@@ -11,6 +11,9 @@ export const Route = createFileRoute("/about")({
       { property: "og:description", content: "Manufactured by Kamal Enterprises, Vasai East, Mumbai. Quality plastic kitchenware for occasions, gifting and everyday use. Available in multiple colours and designs." },
       { property: "og:url", content: "https://www.gadekitchenware.com/about" },
     ],
+    links: [
+      { rel: "canonical", href: "https://www.gadekitchenware.com/about" },
+    ],
   }),
   component: AboutPage,
 });

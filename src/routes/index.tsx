@@ -14,6 +14,9 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "India's trusted B2B wholesale supplier of plastic kitchen racks, organizers, modak moulds, karanji makers, flower pots and home essentials. Based in Mumbai." },
       { property: "og:url", content: "https://www.gadekitchenware.com/" },
     ],
+    links: [
+      { rel: "canonical", href: "https://www.gadekitchenware.com/" },
+    ],
   }),
   component: Home,
 });

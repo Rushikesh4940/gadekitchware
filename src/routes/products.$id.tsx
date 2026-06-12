@@ -29,6 +29,9 @@ export const Route = createFileRoute("/products/$id")({
         { name: "twitter:description", content: desc },
         { name: "twitter:image", content: image },
       ],
+      links: [
+        { rel: "canonical", href: url },
+      ],
     };
   },
   component: ProductDetail,

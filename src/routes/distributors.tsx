@@ -11,6 +11,9 @@ export const Route = createFileRoute("/distributors")({
       { property: "og:description", content: "Wholesale and distribution partnerships for plastic kitchen racks, organisers, modak moulds and home essentials. Competitive pricing, pan India delivery." },
       { property: "og:url", content: "https://www.gadekitchenware.com/distributors" },
     ],
+    links: [
+      { rel: "canonical", href: "https://www.gadekitchenware.com/distributors" },
+    ],
   }),
   component: DistributorsPage,
 });

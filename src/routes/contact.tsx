@@ -11,6 +11,9 @@ export const Route = createFileRoute("/contact")({
       { property: "og:description", content: "Wholesale enquiries, bulk orders and catalogue requests. Call +91 89765 70008 or WhatsApp us. Based in Vasai East, Mumbai, Maharashtra." },
       { property: "og:url", content: "https://www.gadekitchenware.com/contact" },
     ],
+    links: [
+      { rel: "canonical", href: "https://www.gadekitchenware.com/contact" },
+    ],
   }),
   component: ContactPage,
 });
