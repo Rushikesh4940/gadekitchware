@@ -154,39 +154,32 @@ const structuredData = {
       sameAs: ["https://wa.me/918976570008"],
     },
     {
-      "@type": "ItemList",
-      name: "Site Navigation",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.gadekitchenware.com/#sitenavigation",
       itemListElement: [
-        {
-          "@type": "SiteLinksSearchBox",
-          potentialAction: {
-            "@type": "SearchAction",
-            target: "https://www.gadekitchenware.com/products",
-          },
-        },
         {
           "@type": "ListItem",
           position: 1,
           name: "Products",
-          url: "https://www.gadekitchenware.com/products",
+          item: "https://www.gadekitchenware.com/products",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "About Us",
-          url: "https://www.gadekitchenware.com/about",
+          item: "https://www.gadekitchenware.com/about",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Distributors",
-          url: "https://www.gadekitchenware.com/distributors",
+          item: "https://www.gadekitchenware.com/distributors",
         },
         {
           "@type": "ListItem",
           position: 4,
           name: "Contact Us",
-          url: "https://www.gadekitchenware.com/contact",
+          item: "https://www.gadekitchenware.com/contact",
         },
       ],
     },
