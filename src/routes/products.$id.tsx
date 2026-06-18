@@ -70,28 +70,30 @@ function ProductDetail() {
     brand: { "@type": "Brand", name: "GADE" },
     manufacturer: { "@type": "Organization", name: "Kamal Enterprises" },
     category: product.category,
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "INR",
-      ...(hasPrice && priceValue ? { price: priceValue } : {}),
-      availability: "https://schema.org/InStock",
-      seller: { "@type": "Organization", name: "GADE Kitchenware" },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingRate: { "@type": "MonetaryAmount", currency: "INR" },
-        shippingDestination: { "@type": "DefinedRegion", addressCountry: "IN" },
-        deliveryTime: {
-          "@type": "ShippingDeliveryTime",
-          handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 3, unitCode: "d" },
-          transitTime: { "@type": "QuantitativeValue", minValue: 3, maxValue: 7, unitCode: "d" },
+    ...(hasPrice && priceValue ? {
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "INR",
+        price: priceValue,
+        availability: "https://schema.org/InStock",
+        seller: { "@type": "Organization", name: "GADE Kitchenware" },
+        shippingDetails: {
+          "@type": "OfferShippingDetails",
+          shippingRate: { "@type": "MonetaryAmount", currency: "INR" },
+          shippingDestination: { "@type": "DefinedRegion", addressCountry: "IN" },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 3, unitCode: "d" },
+            transitTime: { "@type": "QuantitativeValue", minValue: 3, maxValue: 7, unitCode: "d" },
+          },
+        },
+        hasMerchantReturnPolicy: {
+          "@type": "MerchantReturnPolicy",
+          applicableCountry: "IN",
+          returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
         },
       },
-      hasMerchantReturnPolicy: {
-        "@type": "MerchantReturnPolicy",
-        applicableCountry: "IN",
-        returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
-      },
-    },
+    } : {}),
   });
 
   const breadcrumbSchema = JSON.stringify({
