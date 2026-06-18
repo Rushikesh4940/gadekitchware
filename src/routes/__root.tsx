@@ -74,7 +74,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "keywords",
         content:
-          "plastic kitchenware wholesale India, kitchen rack supplier Mumbai, modak mould manufacturer, karanji maker wholesale, plastic organizer supplier, flower pot wholesale, kitchen storage supplier, bakeware wholesale India, egg storage box, measuring cups wholesale, Gade Kitchenware",
+          "plastic kitchenware wholesale India, kitchen rack supplier Mumbai, modak mould manufacturer, karanji maker wholesale, plastic organizer supplier, flower pot wholesale, kitchen storage supplier, bakeware wholesale India, egg storage box, measuring cups wholesale, GADE Kitchenware",
       },
       { name: "robots", content: "index, follow" },
       { name: "author", content: "GADE Kitchenware — Kamal Enterprises, Mumbai" },
@@ -116,7 +116,7 @@ const structuredData = {
       "@type": "WebSite",
       "@id": "https://www.gadekitchenware.com/#website",
       url: "https://www.gadekitchenware.com/",
-      name: "Gade Kitchenware",
+      name: "GADE Kitchenware",
       description:
         "Smart Utility Products for Modern Living — Kitchen racks, organizers, planters, baking tools and home essentials designed for Indian homes.",
       potentialAction: {
