@@ -1,12 +1,4 @@
 User-agent: *
 Allow: /
-Allow: /assets/
-Allow: /*.js
-Allow: /*.css
-Allow: /*.jpg
-Allow: /*.jpeg
-Allow: /*.png
-Allow: /*.webp
-Allow: /*.svg
 
 Sitemap: https://www.gadekitchenware.com/sitemap.xml

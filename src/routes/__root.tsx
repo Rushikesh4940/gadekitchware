@@ -78,6 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "robots", content: "index, follow" },
       { name: "author", content: "GADE Kitchenware — Kamal Enterprises, Mumbai" },
+      { name: "theme-color", content: "#b70011" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "GADE Kitchenware" },
       { property: "og:image", content: "https://www.gadekitchenware.com/og-image.jpg" },
@@ -94,6 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "manifest", href: "/site.webmanifest" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
@@ -147,41 +149,13 @@ const structuredData = {
       },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Mumbai",
+        streetAddress: "H.No.2/1, Gala No.9, S No. 46/C, Shivam Industries, Gauraipada Road, Asai",
+        addressLocality: "Vasai East",
         addressRegion: "Maharashtra",
+        postalCode: "401208",
         addressCountry: "IN",
       },
-      sameAs: ["https://wa.me/918976570008"],
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.gadekitchenware.com/#sitenavigation",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Products",
-          item: "https://www.gadekitchenware.com/products",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "About Us",
-          item: "https://www.gadekitchenware.com/about",
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "Distributors",
-          item: "https://www.gadekitchenware.com/distributors",
-        },
-        {
-          "@type": "ListItem",
-          position: 4,
-          name: "Contact Us",
-          item: "https://www.gadekitchenware.com/contact",
-        },
-      ],
+      sameAs: ["https://wa.me/918976570008", "https://www.instagram.com/gadekitchenware/"],
     },
   ],
 };
@@ -194,6 +168,14 @@ function RootShell({ children }: { children: React.ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <HeadContent />
+        {/*
+          Analytics load after HeadContent so title/meta/CSS/canonical are
+          parsed and requested first. GTM (GTM-NM4LWTH8) and the direct GA4
+          tag (G-37CSSCMZKN) both fire independently — if the GTM container
+          also has its own GA4 config tag, this double-counts events. Confirm
+          in the GTM workspace and remove whichever one is redundant.
+        */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NM4LWTH8');`,
@@ -205,7 +187,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-37CSSCMZKN');`,
           }}
         />
-        <HeadContent />
       </head>
       <body>
         <noscript>

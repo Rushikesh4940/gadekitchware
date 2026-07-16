@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import story from "@/assets/story.jpg";
+import story from "@/assets/story.webp";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

@@ -17,7 +17,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container-x flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="Gade" className="h-8 w-auto mix-blend-multiply" />
+          <img src={logo} alt="GADE" className="h-8 w-auto mix-blend-multiply" />
           <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Kitchenware</span>
         </Link>
 
@@ -48,6 +48,8 @@ export function Header() {
 
         <button
           aria-label="Menu"
+          aria-expanded={open}
+          aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
           className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-border"
         >
@@ -56,7 +58,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-border/60 bg-background">
+        <div id="mobile-nav" className="md:hidden border-t border-border/60 bg-background">
           <div className="container-x flex flex-col gap-1 py-4">
             {nav.map((n) => (
               <Link

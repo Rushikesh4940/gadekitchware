@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container-x grid gap-12 py-20 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2.5">
-            <img src={logo} alt="Gade" className="h-9 w-auto brightness-0 invert" />
+            <img src={logo} alt="GADE" className="h-9 w-auto brightness-0 invert" />
             <span className="text-[10px] uppercase tracking-[0.22em] text-ivory/50">Kitchenware</span>
           </div>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-ivory/70">

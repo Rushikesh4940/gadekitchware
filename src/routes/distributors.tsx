@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { Check, Download, Truck } from "lucide-react";
 
 export const Route = createFileRoute("/distributors")({
@@ -19,6 +20,35 @@ export const Route = createFileRoute("/distributors")({
 });
 
 function DistributorsPage() {
+  const [sent, setSent] = useState(false);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const business = String(data.get("business") ?? "");
+    const contact = String(data.get("contact") ?? "");
+    const city = String(data.get("city") ?? "");
+    const phone = String(data.get("phone") ?? "");
+    const email = String(data.get("email") ?? "");
+    const about = String(data.get("about") ?? "");
+
+    const body = [
+      `Business name: ${business}`,
+      `Contact person: ${contact}`,
+      `City, State: ${city}`,
+      phone ? `Phone / WhatsApp: ${phone}` : null,
+      `Email: ${email}`,
+      "",
+      about,
+    ]
+      .filter((line) => line !== null)
+      .join("\n");
+
+    const mailto = `mailto:gadekitchenware@gmail.com?subject=${encodeURIComponent(`Distributor enquiry — ${business}`)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    setSent(true);
+  }
+
   return (
     <>
       <section className="bg-ivory">
@@ -51,20 +81,25 @@ function DistributorsPage() {
           </ul>
         </div>
 
-        <form className="md:col-span-5 space-y-4 rounded-xl border border-border bg-card p-8">
+        <form onSubmit={handleSubmit} className="md:col-span-5 space-y-4 rounded-xl border border-border bg-card p-8">
           <h2 className="font-display text-2xl">Distributor enquiry</h2>
-          <Field label="Business name" />
-          <Field label="Contact person" />
-          <Field label="City, State" />
-          <Field label="Phone / WhatsApp" type="tel" />
-          <Field label="Email" type="email" />
+          <Field label="Business name" name="business" required />
+          <Field label="Contact person" name="contact" required />
+          <Field label="City, State" name="city" required />
+          <Field label="Phone / WhatsApp" name="phone" type="tel" />
+          <Field label="Email" name="email" type="email" required />
           <div>
-            <label className="text-xs uppercase tracking-wider text-muted-foreground">Tell us about your business</label>
-            <textarea rows={3} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
+            <label htmlFor="distributor-about" className="text-xs uppercase tracking-wider text-muted-foreground">Tell us about your business</label>
+            <textarea id="distributor-about" name="about" rows={3} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
           </div>
-          <button type="button" className="w-full rounded-full bg-primary py-3 text-sm font-medium text-primary-foreground hover:bg-primary-deep">
+          <button type="submit" className="w-full rounded-full bg-primary py-3 text-sm font-medium text-primary-foreground hover:bg-primary-deep">
             Send enquiry
           </button>
+          {sent && (
+            <p className="text-xs text-muted-foreground" role="status">
+              Opening your email app to send this to gadekitchenware@gmail.com…
+            </p>
+          )}
           <div className="flex items-center justify-between border-t border-border pt-4 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-2"><Truck className="h-4 w-4" /> Bulk-ready</span>
             <Link to="/contact" className="inline-flex items-center gap-1 hover:text-foreground">
@@ -77,11 +112,22 @@ function DistributorsPage() {
   );
 }
 
-function Field({ label, type = "text" }: { label: string; type?: string }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+}) {
+  const id = `distributor-${name}`;
   return (
     <div>
-      <label className="text-xs uppercase tracking-wider text-muted-foreground">{label}</label>
-      <input type={type} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
+      <label htmlFor={id} className="text-xs uppercase tracking-wider text-muted-foreground">{label}</label>
+      <input id={id} name={name} type={type} required={required} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
     </div>
   );
 }

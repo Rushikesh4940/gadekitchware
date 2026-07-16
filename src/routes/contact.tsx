@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
@@ -19,6 +20,32 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const [sent, setSent] = useState(false);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
+    const phone = String(data.get("phone") ?? "");
+    const subject = String(data.get("subject") ?? "") || "Website enquiry";
+    const message = String(data.get("message") ?? "");
+
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      phone ? `Phone: ${phone}` : null,
+      "",
+      message,
+    ]
+      .filter((line) => line !== null)
+      .join("\n");
+
+    const mailto = `mailto:gadekitchenware@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    setSent(true);
+  }
+
   return (
     <>
       <section className="bg-ivory">
@@ -47,21 +74,26 @@ function ContactPage() {
           </div>
         </div>
 
-        <form className="md:col-span-7 rounded-xl border border-border bg-card p-8 md:p-10">
+        <form onSubmit={handleSubmit} className="md:col-span-7 rounded-xl border border-border bg-card p-8 md:p-10">
           <h2 className="font-display text-2xl">Send a message</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
-            <Field label="Name" />
-            <Field label="Email" type="email" />
-            <Field label="Phone" type="tel" />
-            <Field label="Subject" />
+            <Field label="Name" name="name" required />
+            <Field label="Email" name="email" type="email" required />
+            <Field label="Phone" name="phone" type="tel" />
+            <Field label="Subject" name="subject" />
           </div>
           <div className="mt-5">
-            <label className="text-xs uppercase tracking-wider text-muted-foreground">Message</label>
-            <textarea rows={5} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
+            <label htmlFor="contact-message" className="text-xs uppercase tracking-wider text-muted-foreground">Message</label>
+            <textarea id="contact-message" name="message" rows={5} required className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
           </div>
-          <button type="button" className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground hover:bg-primary-deep">
+          <button type="submit" className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground hover:bg-primary-deep">
             Send message
           </button>
+          {sent && (
+            <p className="mt-3 text-xs text-muted-foreground" role="status">
+              Opening your email app to send this to gadekitchenware@gmail.com…
+            </p>
+          )}
         </form>
       </section>
     </>
@@ -84,11 +116,22 @@ function ContactRow({ icon: Icon, label, value, href }: { icon: React.ElementTyp
   );
 }
 
-function Field({ label, type = "text" }: { label: string; type?: string }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+}) {
+  const id = `contact-${name}`;
   return (
     <div>
-      <label className="text-xs uppercase tracking-wider text-muted-foreground">{label}</label>
-      <input type={type} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
+      <label htmlFor={id} className="text-xs uppercase tracking-wider text-muted-foreground">{label}</label>
+      <input id={id} name={name} type={type} required={required} className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
     </div>
   );
 }
