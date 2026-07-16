@@ -17,6 +17,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as ProductsModakMouldsRouteImport } from './routes/products.modak-moulds'
 import { Route as ProductsIdRouteImport } from './routes/products.$id'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -59,6 +60,11 @@ const ProductsIndexRoute = ProductsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ProductsRoute,
 } as any)
+const ProductsModakMouldsRoute = ProductsModakMouldsRouteImport.update({
+  id: '/modak-moulds',
+  path: '/modak-moulds',
+  getParentRoute: () => ProductsRoute,
+} as any)
 const ProductsIdRoute = ProductsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/products': typeof ProductsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/products/$id': typeof ProductsIdRoute
+  '/products/modak-moulds': typeof ProductsModakMouldsRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/lander': typeof LanderRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/products/$id': typeof ProductsIdRoute
+  '/products/modak-moulds': typeof ProductsModakMouldsRoute
   '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/products': typeof ProductsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/products/$id': typeof ProductsIdRoute
+  '/products/modak-moulds': typeof ProductsModakMouldsRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/products'
     | '/sitemap.xml'
     | '/products/$id'
+    | '/products/modak-moulds'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/lander'
     | '/sitemap.xml'
     | '/products/$id'
+    | '/products/modak-moulds'
     | '/products'
   id:
     | '__root__'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/products'
     | '/sitemap.xml'
     | '/products/$id'
+    | '/products/modak-moulds'
     | '/products/'
   fileRoutesById: FileRoutesById
 }
@@ -201,6 +213,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsIndexRouteImport
       parentRoute: typeof ProductsRoute
     }
+    '/products/modak-moulds': {
+      id: '/products/modak-moulds'
+      path: '/modak-moulds'
+      fullPath: '/products/modak-moulds'
+      preLoaderRoute: typeof ProductsModakMouldsRouteImport
+      parentRoute: typeof ProductsRoute
+    }
     '/products/$id': {
       id: '/products/$id'
       path: '/$id'
@@ -213,11 +232,13 @@ declare module '@tanstack/react-router' {
 
 interface ProductsRouteChildren {
   ProductsIdRoute: typeof ProductsIdRoute
+  ProductsModakMouldsRoute: typeof ProductsModakMouldsRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 const ProductsRouteChildren: ProductsRouteChildren = {
   ProductsIdRoute: ProductsIdRoute,
+  ProductsModakMouldsRoute: ProductsModakMouldsRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 

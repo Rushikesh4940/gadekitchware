@@ -113,6 +113,14 @@ function ProductsPage() {
           })}
         </div>
 
+        <p className="mt-4 text-sm text-muted-foreground">
+          Looking specifically for modak moulds?{" "}
+          <Link to="/products/modak-moulds" className="font-medium text-primary hover:underline">
+            See our full Modak Mould range
+          </Link>
+          .
+        </p>
+
         <div className="mt-12 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p) => (
             <div key={p.id} className="group flex flex-col">

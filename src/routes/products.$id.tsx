@@ -251,7 +251,12 @@ function ProductDetail() {
           <div className="container-x">
             <div className="flex items-center justify-between">
               <h2 className="font-display text-2xl">You may also like</h2>
-              <Link to="/products" className="text-sm font-medium text-primary hover:underline">View all</Link>
+              <Link
+                to={product.id.startsWith("modak") ? "/products/modak-moulds" : "/products"}
+                className="text-sm font-medium text-primary hover:underline"
+              >
+                View all
+              </Link>
             </div>
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {related.map((p) => (
