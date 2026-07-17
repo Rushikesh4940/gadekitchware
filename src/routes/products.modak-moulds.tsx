@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Phone } from "lucide-react";
 import { products, waLink } from "@/lib/products";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -125,6 +125,38 @@ function ModakMouldsPage() {
             BPA-free, built for repeated use, and available for wholesale and bulk orders ahead of
             Ganesh Chaturthi.
           </p>
+
+          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-3 rise-3">
+            {[
+              { k: "9", v: "Mould sizes & sets" },
+              { k: "210 pcs", v: "MOQ from" },
+              { k: "1–3 days", v: "Dispatch time" },
+            ].map((s) => (
+              <div key={s.v} className="flex items-baseline gap-2">
+                <dt className="font-display text-xl text-primary">{s.k}</dt>
+                <dd className="text-xs uppercase tracking-wider text-muted-foreground">{s.v}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className="mt-10 flex flex-wrap items-center gap-3 rise-4">
+            <a
+              href={waLink("Modak Moulds — bulk / wholesale enquiry")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1ebe5d]"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              Get bulk pricing on WhatsApp
+            </a>
+            <a
+              href="tel:+918976570008"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3.5 text-sm font-medium hover:bg-muted"
+            >
+              <Phone className="h-4 w-4" />
+              Or call +91 89765 70008
+            </a>
+          </div>
         </div>
       </section>
 
