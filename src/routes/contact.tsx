@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { WHATSAPP_NUMBER } from "@/lib/products";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -20,30 +22,37 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  const [sent, setSent] = useState(false);
+  const [sent, setSent] = useState<"whatsapp" | "email" | null>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
+  function buildMessage(form: HTMLFormElement) {
+    const data = new FormData(form);
     const name = String(data.get("name") ?? "");
     const email = String(data.get("email") ?? "");
     const phone = String(data.get("phone") ?? "");
     const subject = String(data.get("subject") ?? "") || "Website enquiry";
     const message = String(data.get("message") ?? "");
+    return {
+      subject,
+      body: [`Name: ${name}`, `Email: ${email}`, phone ? `Phone: ${phone}` : null, "", message]
+        .filter((line) => line !== null)
+        .join("\n"),
+    };
+  }
 
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      phone ? `Phone: ${phone}` : null,
-      "",
-      message,
-    ]
-      .filter((line) => line !== null)
-      .join("\n");
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const { subject, body } = buildMessage(e.currentTarget);
+    const waMessage = `${subject}\n\n${body}`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`, "_blank");
+    setSent("whatsapp");
+  }
 
-    const mailto = `mailto:gadekitchenware@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setSent(true);
+  function handleEmailInstead(e: React.MouseEvent<HTMLButtonElement>) {
+    const form = e.currentTarget.form;
+    if (!form) return;
+    const { subject, body } = buildMessage(form);
+    window.location.href = `mailto:gadekitchenware@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSent("email");
   }
 
   return (
@@ -86,12 +95,27 @@ function ContactPage() {
             <label htmlFor="contact-message" className="text-xs uppercase tracking-wider text-muted-foreground">Message</label>
             <textarea id="contact-message" name="message" rows={5} required className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" />
           </div>
-          <button type="submit" className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground hover:bg-primary-deep">
-            Send message
-          </button>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <button
+              type="submit"
+              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1ebe5d]"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              Send via WhatsApp
+            </button>
+            <button
+              type="button"
+              onClick={handleEmailInstead}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
+              Or email us instead
+            </button>
+          </div>
           {sent && (
             <p className="mt-3 text-xs text-muted-foreground" role="status">
-              Opening your email app to send this to gadekitchenware@gmail.com…
+              {sent === "whatsapp"
+                ? "Opening WhatsApp to send this to us…"
+                : "Opening your email app to send this to gadekitchenware@gmail.com…"}
             </p>
           )}
         </form>
