@@ -157,6 +157,18 @@ function ModakMouldsPage() {
               Or call +91 89765 70008
             </a>
           </div>
+
+          <p className="mt-4 text-xs text-muted-foreground rise-4">
+            Festival-season stock is allocated as orders are confirmed — wholesale orders for
+            Ganesh Chaturthi are dispatching now.
+          </p>
+
+          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-2 border-t border-border/70 pt-6 text-[11px] uppercase tracking-wider text-muted-foreground rise-4">
+            <span>Est. 2017 · Maharashtra</span>
+            <span>GST Registered · 27AZBPG5815D1ZQ</span>
+            <span>Manufactured in Vasai, Mumbai</span>
+            <span>Pan-India dispatch</span>
+          </div>
         </div>
       </section>
 
@@ -202,6 +214,35 @@ function ModakMouldsPage() {
               </a>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="border-t border-border">
+        <div className="container-x flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 className="font-display text-2xl">Ordering 1,000+ pieces, or stocking more than moulds?</h2>
+            <p className="mt-2 max-w-xl text-sm text-muted-foreground">
+              Distributor partners get tiered wholesale pricing across GADE's full range of 180+
+              kitchen and home SKUs — modak moulds, karanji makers, racks, organisers and more.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              to="/distributors"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-deep"
+            >
+              Become a distributor
+            </Link>
+            <a
+              href={waLink("Modak Moulds — wholesale price list request")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-medium hover:bg-muted"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              Get the price list
+            </a>
+          </div>
         </div>
       </section>
 
