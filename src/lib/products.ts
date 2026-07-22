@@ -41,6 +41,9 @@ import pFlowerPot8m4 from "@/assets/products/flower-pot-8inch-m4.webp";
 
 // ─── Kitchen Makers ───────────────────────────────────────────────────────────
 import pKachoriMaker from "@/assets/products/kachori-maker.webp";
+import pFancyKaranji1 from "@/assets/products/fancy-karanji-maker-1.webp";
+import pFancyKaranji2 from "@/assets/products/fancy-karanji-maker-2.webp";
+import pFancyKaranji3 from "@/assets/products/fancy-karanji-maker-3.webp";
 import pKaranjiNo1 from "@/assets/products/karanji-maker-no1.webp";
 import pDhoomKaranji from "@/assets/products/dhoom-karanji-maker.webp";
 import pRedKaranji from "@/assets/products/red-karanji-maker-suraj.webp";
@@ -142,7 +145,7 @@ export const categories: Category[] = [
   {
     slug: "kitchen-makers",
     name: "Kitchen Makers",
-    count: 14,
+    count: 15,
     image: pKaranjiNo1,
     blurb: "Moulds and makers for karanji, samosa, modak, momos and more Indian favourites.",
   },
@@ -170,6 +173,7 @@ export type Product = {
   moq: string;
   badge?: string;
   image: string;
+  images?: string[];
   dims: string;
   pack: string;
   desc: string;
@@ -585,6 +589,18 @@ export const products: Product[] = [
     dims: "160 × 80 × 25 mm",
     pack: "Single",
     desc: "Classic karanji mould for perfectly shaped and sealed sweet dumplings. Clean release, durable hinge.",
+  },
+  {
+    id: "fancy-karanji-maker",
+    name: "Fancy Karanji Maker",
+    category: "Kitchen Makers",
+    price: "₹ 10",
+    moq: "MOQ 500 pcs",
+    image: pFancyKaranji1,
+    images: [pFancyKaranji1, pFancyKaranji2, pFancyKaranji3],
+    dims: "Inner Ø 9.5 cm / Outer Ø 13 cm",
+    pack: "Single",
+    desc: "Wristwatch-shaped karanji mould with a decorative crimped edge and clip-lock hinge. Gives a clean, uniform seal in one press.",
   },
   {
     id: "dhoom-karanji-maker",

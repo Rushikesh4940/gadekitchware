@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { ArrowLeft, Check, ChevronRight, MessageCircle } from "lucide-react";
 import { products, waLink } from "@/lib/products";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
@@ -55,6 +56,14 @@ export const Route = createFileRoute("/products/$id")({
 
 function ProductDetail() {
   const { product } = Route.useLoaderData();
+  const gallery = product.images && product.images.length > 0 ? product.images : [product.image];
+  const [activeImage, setActiveImage] = useState(gallery[0]);
+
+  useEffect(() => {
+    setActiveImage(gallery[0]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [product.id]);
+
   const related = products
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
@@ -133,27 +142,33 @@ function ProductDetail() {
           <div className="flex flex-col gap-3">
             <div className="overflow-hidden rounded-2xl border border-border bg-ivory">
               <img
-                src={product.image}
+                src={activeImage}
                 alt={product.name}
                 width={800}
                 height={800}
                 className="aspect-square w-full object-cover"
               />
             </div>
-            {/* Placeholder thumbnails — update when more images are available */}
-            <div className="grid grid-cols-4 gap-2">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className={`overflow-hidden rounded-lg border-2 bg-ivory ${i === 1 ? "border-primary" : "border-border"}`}>
-                  <img
-                    src={product.image}
-                    alt={`${product.name} ${i}`}
-                    width={200}
-                    height={200}
-                    className="aspect-square w-full object-cover opacity-80"
-                  />
-                </div>
-              ))}
-            </div>
+            {gallery.length > 1 && (
+              <div className="grid grid-cols-4 gap-2">
+                {gallery.map((img, i) => (
+                  <button
+                    key={img}
+                    type="button"
+                    onClick={() => setActiveImage(img)}
+                    className={`overflow-hidden rounded-lg border-2 bg-ivory ${activeImage === img ? "border-primary" : "border-border"}`}
+                  >
+                    <img
+                      src={img}
+                      alt={`${product.name} ${i + 1}`}
+                      width={200}
+                      height={200}
+                      className="aspect-square w-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Details */}
