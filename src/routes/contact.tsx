@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { WHATSAPP_NUMBER } from "@/lib/products";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
+import { trackEvent } from "@/lib/analytics";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -43,6 +44,7 @@ function ContactPage() {
     e.preventDefault();
     const { subject, body } = buildMessage(e.currentTarget);
     const waMessage = `${subject}\n\n${body}`;
+    trackEvent("contact_form_submit", { method: "whatsapp", subject });
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`, "_blank");
     setSent("whatsapp");
   }
@@ -51,6 +53,7 @@ function ContactPage() {
     const form = e.currentTarget.form;
     if (!form) return;
     const { subject, body } = buildMessage(form);
+    trackEvent("contact_form_submit", { method: "email", subject });
     window.location.href = `mailto:gadekitchenware@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent("email");
   }

@@ -7,9 +7,11 @@ import {
   useRouter,
 } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect } from "react";
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { initLinkTracking, trackPageView } from "@/lib/analytics";
 
 function NotFoundComponent() {
   return (
@@ -171,10 +173,16 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
         {/*
           Analytics load after HeadContent so title/meta/CSS/canonical are
-          parsed and requested first. GTM (GTM-NM4LWTH8) and the direct GA4
-          tag (G-37CSSCMZKN) both fire independently — if the GTM container
-          also has its own GA4 config tag, this double-counts events. Confirm
-          in the GTM workspace and remove whichever one is redundant.
+          parsed and requested first. GTM (GTM-NM4LWTH8) and the direct gtag
+          config both fire independently — if the GTM container also has its
+          own GA4 config tag, this double-counts events. Confirm in the GTM
+          workspace and remove whichever one is redundant.
+
+          One gtag.js loader serves both destinations below (GA4 property
+          G-37CSSCMZKN and Google Ads conversion ID AW-18338141425) via
+          separate config calls — loading gtag.js a second time per ID is
+          unnecessary. trackEvent() in lib/analytics.ts calls window.gtag()
+          directly, so its events reach both automatically.
         */}
         <script
           dangerouslySetInnerHTML={{
@@ -184,7 +192,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-37CSSCMZKN" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-37CSSCMZKN');`,
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-37CSSCMZKN');gtag('config','AW-18338141425');`,
           }}
         />
       </head>
@@ -206,6 +214,22 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  useEffect(() => initLinkTracking(), []);
+
+  useEffect(
+    // gtag's initial config already logs the landing page; this covers
+    // client-side navigations, which an SPA otherwise never reports.
+    () =>
+      router.subscribe("onResolved", ({ toLocation, fromLocation }) => {
+        if (fromLocation && toLocation.pathname !== fromLocation.pathname) {
+          trackPageView(toLocation.pathname);
+        }
+      }),
+    [router],
+  );
+
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col">

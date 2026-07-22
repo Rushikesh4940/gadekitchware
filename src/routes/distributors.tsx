@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Check, Download, Truck } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export const Route = createFileRoute("/distributors")({
   head: () => ({
@@ -45,6 +46,7 @@ function DistributorsPage() {
       .join("\n");
 
     const mailto = `mailto:gadekitchenware@gmail.com?subject=${encodeURIComponent(`Distributor enquiry — ${business}`)}&body=${encodeURIComponent(body)}`;
+    trackEvent("distributor_form_submit", { business, city });
     window.location.href = mailto;
     setSent(true);
   }
