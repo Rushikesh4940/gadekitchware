@@ -59,6 +59,8 @@ import pModakSingleMedium from "@/assets/products/modak-mould-single-medium.webp
 import pModakSingleLarge from "@/assets/products/modak-mould-single-large.webp";
 import pModak3fold from "@/assets/products/modak-3fold.webp";
 import pModak1kg from "@/assets/products/modak-mould-1kg.webp";
+import pModak250gm from "@/assets/products/Gade-Modak-mould-250gm.webp";
+import pModak500gm from "@/assets/products/Gade-modak-mould-500gm.webp";
 import pModak4combo from "@/assets/products/modak-4pcs-combo.webp";
 import pSpiceJarOrg from "@/assets/products/camping-spice-jar-organizer.webp";
 import pContainerDesk from "@/assets/products/container-desk-organizer.webp";
@@ -145,7 +147,7 @@ export const categories: Category[] = [
   {
     slug: "kitchen-makers",
     name: "Kitchen Makers",
-    count: 15,
+    count: 18,
     image: pKaranjiNo1,
     blurb: "Moulds and makers for karanji, samosa, modak, momos and more Indian favourites.",
   },
@@ -748,6 +750,18 @@ export const products: Product[] = [
     desc: "3-fold plastic modak mould — fill, fold and press to shape perfectly ridged modak in seconds. Easy-release design.",
   },
   {
+    id: "modak-mould-3fold-no-2",
+    name: "Gade Modak Mould 3 Fold No 2",
+    category: "Kitchen Makers",
+    price: "₹ 8",
+    moq: "Contact us",
+    badge: "New",
+    image: pModak3fold,
+    dims: "90 × 70 mm",
+    pack: "Single",
+    desc: "Gade's No 2 three-fold modak mould — fill, fold and press to shape a perfectly ridged ukadiche modak in seconds. Food-grade plastic, easy-release design.",
+  },
+  {
     id: "modak-4pcs-combo",
     name: "Modak 4 Pcs Combo Set",
     category: "Kitchen Makers",
@@ -770,6 +784,30 @@ export const products: Product[] = [
     dims: "Approx. 1 kg capacity",
     pack: "Single",
     desc: "Extra-large 1 kg modak mould for making big, festive modak. Perfect for bulk preparation during Ganesh Chaturthi. Food-grade plastic, easy press-and-release design.",
+  },
+  {
+    id: "modak-mould-250gm",
+    name: "250 Gram Modak Mould",
+    category: "Kitchen Makers",
+    price: "₹ 90",
+    moq: "MOQ 100 pcs",
+    badge: "New",
+    image: pModak250gm,
+    dims: "Approx. 250 gram capacity",
+    pack: "Single",
+    desc: "Food-grade plastic modak mould with a 250 gram capacity — makes one generously sized ukadiche modak per press. Deep ridged cavity and easy-release halves for a clean shape every time.",
+  },
+  {
+    id: "modak-mould-500gm",
+    name: "500 Gram Modak Mould",
+    category: "Kitchen Makers",
+    price: "₹ 180",
+    moq: "MOQ 100 pcs",
+    badge: "New",
+    image: pModak500gm,
+    dims: "Approx. 500 gram capacity",
+    pack: "Single",
+    desc: "Food-grade plastic modak mould with a 500 gram capacity — ideal for bigger festive modak without stepping up to the full 1 kg size. Deep ridged cavity, easy-release halves, built for repeated Ganesh Chaturthi use.",
   },
   {
     id: "pani-puri-plate",

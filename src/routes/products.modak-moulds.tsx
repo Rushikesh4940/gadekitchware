@@ -10,7 +10,7 @@ const PAGE_URL = `${BASE_URL}/products/modak-moulds`;
 const faqs = [
   {
     q: "What sizes of modak mould do you make?",
-    a: "Small, medium and large single-cavity moulds, a 3-fold mould, a 4-piece combo set covering multiple sizes, and a 1 kg mould for big festive modak — nine variants in total.",
+    a: "Small, medium and large single-cavity moulds, two 3-fold moulds, a 4-piece combo set covering multiple sizes, 250 gram and 500 gram moulds, and a 1 kg mould for big festive modak — twelve variants in total.",
   },
   {
     q: "Are these moulds food-grade and safe for festival cooking?",
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "What's the MOQ for bulk/wholesale modak mould orders?",
-    a: "MOQ varies by size — from 210 pieces for the smaller Modak Patti moulds up to 1,000 pieces for the 1 KG mould. Contact us for combined-SKU wholesale orders ahead of festival season.",
+    a: "MOQ varies by size — from 100 pieces for the 250gm and 500gm moulds up to 1,000 pieces for the 1 KG mould. Contact us for combined-SKU wholesale orders ahead of festival season.",
   },
   {
     q: "How fast can you supply before Ganesh Chaturthi?",
@@ -35,18 +35,18 @@ export const Route = createFileRoute("/products/modak-moulds")({
       {
         name: "description",
         content:
-          "GADE Kitchenware manufactures plastic modak moulds in small, medium, large, 3-fold, combo and 1kg sizes — food-grade, wholesale-ready, and built for Ganesh Chaturthi bulk orders across India.",
+          "GADE Kitchenware manufactures plastic modak moulds in small, medium, large, 250gm, 500gm, 3-fold, combo and 1kg sizes — food-grade, wholesale-ready, and built for Ganesh Chaturthi bulk orders across India.",
       },
       {
         name: "keywords",
         content:
-          "modak mould, modak mould wholesale, modak mould manufacturer India, ukadiche modak mould, modak maker, plastic modak mould Ganesh Chaturthi, modak mould bulk order",
+          "modak mould, modak mould wholesale, modak mould manufacturer India, ukadiche modak mould, modak maker, plastic modak mould Ganesh Chaturthi, modak mould bulk order, 250gm modak mould, 500gm modak mould",
       },
       { property: "og:title", content: "Modak Mould Manufacturer & Wholesale Supplier — GADE Kitchenware" },
       {
         property: "og:description",
         content:
-          "Nine sizes of food-grade plastic modak moulds, from single-cavity small/medium/large to 3-fold and 1kg festive moulds. Wholesale and bulk supply pan-India.",
+          "Twelve sizes of food-grade plastic modak moulds, from single-cavity small/medium/large to 250gm, 500gm, 3-fold and 1kg festive moulds. Wholesale and bulk supply pan-India.",
       },
       { property: "og:url", content: PAGE_URL },
     ],
@@ -121,15 +121,15 @@ function ModakMouldsPage() {
           <p className="mt-6 max-w-2xl text-muted-foreground rise-3">
             GADE manufactures food-grade plastic modak moulds for making ukadiche modak at home
             and at scale — small, medium and large single-cavity moulds, a quick 3-fold mould, a
-            4-piece combo set, and a 1&nbsp;kg mould for big festive modak. Every mould is
-            BPA-free, built for repeated use, and available for wholesale and bulk orders ahead of
-            Ganesh Chaturthi.
+            4-piece combo set, 250&nbsp;gram and 500&nbsp;gram moulds, and a 1&nbsp;kg mould for
+            big festive modak. Every mould is BPA-free, built for repeated use, and available for
+            wholesale and bulk orders ahead of Ganesh Chaturthi.
           </p>
 
           <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-3 rise-3">
             {[
-              { k: "9", v: "Mould sizes & sets" },
-              { k: "210 pcs", v: "MOQ from" },
+              { k: "12", v: "Mould sizes & sets" },
+              { k: "100 pcs", v: "MOQ from" },
               { k: "1–3 days", v: "Dispatch time" },
             ].map((s) => (
               <div key={s.v} className="flex items-baseline gap-2">
